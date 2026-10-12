@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hedycarter.github.io/sitemap.xml
+Sitemap: https://olucos-mali.github.io/sitemap.xml
