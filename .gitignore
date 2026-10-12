@@ -1,0 +1,46 @@
+# Système
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Secrets (aucune clé ne doit être dans le dépôt)
+.env
+.env.*
+!.env.example
+
+# Dépendances et builds (phase 2)
+node_modules/
+dist/
+build/
+
+# Fichiers source lourds (logos .ai/.psd, vidéos brutes) : à stocker hors du dépôt
+*.psd
+*.ai
+*.mov
+
+# Originaux d'images (Facebook, LinkedIn, X) : jamais publiés (certains montrent des personnes en parcours de reconstruction)
+assets/images/photos/source/
+assets/images/logo/source/
+
+# --- Dépôt public (GitHub Pages) : ce qui reste sur l'ordinateur et n'est jamais publié ---
+
+# Notes internes sur l'ONG : questions en attente, relevés de sources, état du projet
+docs/
+
+# Consignes de travail et outils de l'assistant
+CLAUDE.md
+.claude/
+.agents/
+
+# Briefs de motion design (documents de travail)
+MotionDesign/
+
+# Fichiers temporaires
+*.log
+*.tmp
+*.bak
+

@@ -1,0 +1,274 @@
+/* ==========================================================================
+   Page « Vérité sur les stupéfiants » : ton éducatif, sobre, sans image choc.
+   Domaines → projets de prévention → contenus en préparation.
+   ========================================================================== */
+.verite__title {
+  font-size: var(--text-xl);
+  color: var(--teal-900);
+}
+
+.verite__intro {
+  margin: var(--space-2) 0 var(--space-5);
+  max-width: 42rem;
+  color: var(--color-text-muted);
+}
+
+.verite-approach {
+  background: var(--paper-warm);
+}
+
+.verite-domains,
+.verite-projects {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.verite-domain,
+.verite-project {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+}
+
+.verite-domain__icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--teal-600);
+  color: var(--paper);
+  transition: background-color var(--duration-base) var(--ease-out);
+}
+
+.verite-domain__icon .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.verite-domain:hover .verite-domain__icon {
+  background: var(--olive-600);
+}
+
+.verite-domain__title,
+.verite-project__title {
+  font-size: var(--text-lg);
+  color: var(--teal-900);
+}
+
+.verite-project__title a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: inherit;
+}
+
+.verite__more {
+  margin-top: var(--space-5);
+}
+
+/* ---- Contenus en préparation : état vide soigné ---- */
+.verite-soon {
+  background: var(--paper-warm);
+}
+
+.verite-soon__box {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-3);
+  max-width: 44rem;
+  margin-inline: auto;
+  padding: var(--space-6);
+  border: 2px dashed var(--line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+}
+
+.verite-soon__dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.verite-soon__dots i {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--teal-600);
+}
+
+.verite-soon__dots i:nth-child(2) {
+  background: var(--olive-600);
+}
+
+.verite-soon__dots i:last-child {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px var(--teal-600);
+}
+
+.verite-soon__title {
+  font-size: var(--text-xl);
+  color: var(--teal-900);
+}
+
+.verite-soon__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+@media (max-width: 39.99rem) {
+  .verite-soon__cta .button {
+    width: 100%;
+  }
+}
+
+@media (min-width: 48rem) {
+  .verite-domains {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .verite-projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- En-tête : le texte et la photo de la campagne côte à côte ---- */
+.verite-hero {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.verite-hero__photo {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: rgb(255 255 255 / 0.08);
+  box-shadow: 0 24px 40px -28px rgb(0 0 0 / 0.6);
+}
+
+.verite-hero__photo picture,
+.verite-hero__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+@media (min-width: 56rem) {
+  .verite-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 34rem);
+    gap: var(--space-7);
+  }
+}
+
+/* ---- Campagne #SINI SANUMA : photo et message ---- */
+.verite-campaign__inner {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.verite-campaign__photo {
+  position: relative;
+  max-width: 34rem;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 40px -30px rgb(0 51 51 / 0.6);
+}
+
+.verite-campaign__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 700ms var(--ease-out);
+}
+
+.verite-campaign__photo:hover img {
+  transform: scale(1.04);
+}
+
+.verite-campaign__text {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-3);
+  max-width: 36rem;
+}
+
+.verite-campaign__tag {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--olive-700);
+}
+
+@media (min-width: 48rem) {
+  .verite-campaign__inner {
+    grid-template-columns: 34rem minmax(0, 1fr);
+    gap: var(--space-7);
+  }
+}
+
+/* Cartes : apparition progressive, désactivée en mouvement réduit */
+.js .verite-domains:not(.is-in) > li,
+.js .verite-projects:not(.is-in) > li {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.js .verite-domains.is-in > li,
+.js .verite-projects.is-in > li {
+  animation: verite-in 600ms var(--ease-out) both;
+}
+
+.js .is-in > :nth-child(3n + 2) { animation-delay: 110ms; }
+.js .is-in > :nth-child(3n + 3) { animation-delay: 220ms; }
+
+@keyframes verite-in {
+  from { opacity: 0; transform: translateY(14px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verite-campaign__photo img {
+    transition: none;
+  }
+
+  .js .verite-domains.is-in > li,
+  .js .verite-projects.is-in > li {
+    animation: none;
+  }
+}
+
+.verite-hero__photo {
+  position: relative;
+}
+
+.verite-hero__caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: var(--space-5) var(--space-4) var(--space-3);
+  background: linear-gradient(to top, rgb(0 30 30 / 0.82), transparent);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-on-dark);
+}
+
+.verite-recent {
+  background: var(--paper-warm);
+}
+
+.verite-recent[hidden] {
+  display: none;
+}
+
+.verite-project__date {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--olive-700);
+}

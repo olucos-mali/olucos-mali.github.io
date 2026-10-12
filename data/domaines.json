@@ -1,0 +1,65 @@
+[
+  {
+    "id": "protection",
+    "slug": "protection-femmes-enfants",
+    "title": "Protection des femmes et des enfants",
+    "shortTitle": "Protection",
+    "summary": "Assistance psychologique, sociale et médicale aux victimes de drogues et de conflits ; programmes de sécurité et d'autonomie.",
+    "icon": "shield-check",
+    "status": "published"
+  },
+  {
+    "id": "prevention",
+    "slug": "prevention-drogues",
+    "title": "Prévention et sensibilisation sur les drogues",
+    "shortTitle": "Prévention des drogues",
+    "summary": "Campagnes par l'art, la culture et l'éducation ; formation des jeunes sur les risques liés aux stupéfiants.",
+    "icon": "megaphone",
+    "status": "published"
+  },
+  {
+    "id": "sante",
+    "slug": "sante-reproductive",
+    "title": "Promotion de la santé reproductive",
+    "shortTitle": "Santé reproductive",
+    "summary": "Sensibilisation sur la contraception et la prévention des IST.",
+    "icon": "heart-pulse",
+    "status": "published"
+  },
+  {
+    "id": "reinsertion",
+    "slug": "reinsertion-sociale",
+    "title": "Réinsertion sociale des personnes en situation d'addiction",
+    "shortTitle": "Réinsertion sociale",
+    "summary": "Programmes de désintoxication et de réinsertion professionnelle.",
+    "icon": "hand-helping",
+    "status": "published"
+  },
+  {
+    "id": "vbg",
+    "slug": "lutte-contre-vbg",
+    "title": "Lutte contre les violences basées sur le genre (VBG)",
+    "shortTitle": "Lutte contre les VBG",
+    "summary": "Assistance psychologique et juridique et sensibilisation sur les liens entre stupéfiants et comportements violents.",
+    "icon": "scale",
+    "status": "published"
+  },
+  {
+    "id": "autonomisation",
+    "slug": "autonomisation-femmes",
+    "title": "Autonomisation des femmes et entrepreneuriat féminin",
+    "shortTitle": "Autonomisation des femmes",
+    "summary": "Soutien aux activités génératrices de revenus et accompagnement économique local.",
+    "icon": "sprout",
+    "status": "published"
+  },
+  {
+    "id": "formation",
+    "slug": "formation-jeunes",
+    "title": "Formation des jeunes",
+    "shortTitle": "Formation des jeunes",
+    "summary": "Ateliers visant l'employabilité des jeunes et la lutte contre le chômage.",
+    "icon": "graduation-cap",
+    "status": "published"
+  }
+]

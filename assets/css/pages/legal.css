@@ -1,0 +1,118 @@
+/* ==========================================================================
+   Pages légales (Mentions légales, Confidentialité) : texte lisible, colonne étroite.
+   ========================================================================== */
+.legal {
+  background: var(--paper);
+}
+
+.legal__inner {
+  max-width: 48rem;
+}
+
+.legal__inner > * + * {
+  margin-top: var(--space-4);
+}
+
+.legal__title {
+  margin-top: var(--space-6);
+  font-size: var(--text-xl);
+  color: var(--teal-900);
+}
+
+.legal__title:first-of-type {
+  margin-top: var(--space-5);
+}
+
+.legal__draft {
+  padding: var(--space-3) var(--space-4);
+  border-left: 4px solid var(--olive-600);
+  border-radius: var(--radius-sm);
+  background: var(--olive-50);
+  font-size: var(--text-sm);
+}
+
+.legal__updated {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.legal__bullets {
+  display: grid;
+  gap: var(--space-2);
+  padding-left: var(--space-5);
+  list-style: disc;
+}
+
+.legal__list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.legal__list > div {
+  display: grid;
+  gap: var(--space-1);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--line);
+}
+
+.legal__list dt {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--olive-700);
+}
+
+.legal__list dd {
+  margin: 0;
+}
+
+/* Information encore à fournir : bien visible, jamais inventée */
+.todo {
+  padding: 0.1em 0.4em;
+  border-radius: var(--radius-sm);
+  background: var(--olive-50);
+  box-shadow: inset 0 0 0 1px var(--olive-600);
+  font-weight: 600;
+  color: var(--olive-700);
+}
+
+.legal__table {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.legal__table table {
+  width: 100%;
+  min-width: 36rem;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.legal__table th,
+.legal__table td {
+  padding: var(--space-3);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.legal__table thead th {
+  background: var(--teal-50);
+  font-family: var(--font-display);
+  color: var(--teal-900);
+}
+
+.legal__table tbody th {
+  font-weight: 600;
+  color: var(--teal-900);
+}
+
+.legal__table tr:last-child > * {
+  border-bottom: 0;
+}
+
+.legal__table:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}

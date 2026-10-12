@@ -1,0 +1,55 @@
+[
+  {
+    "id": "bamako",
+    "name": "Bamako",
+    "lat": 12.6392,
+    "lon": -8.0029,
+    "kind": "siege",
+    "label": "left",
+    "items": [
+      {
+        "text": "Siège de l'ONG, Baco Djicoroni",
+        "project": null
+      },
+      {
+        "text": "110 femmes et hommes du District de Bamako en formation professionnelle",
+        "project": "projet-djiguiya"
+      }
+    ],
+    "status": "published"
+  },
+  {
+    "id": "segou",
+    "name": "Ségou",
+    "lat": 13.4317,
+    "lon": -6.2157,
+    "kind": "action",
+    "label": "top",
+    "items": [
+      {
+        "text": "40 jeunes de diverses associations réunis pour une conférence-débat sur les stupéfiants",
+        "project": "conference-debat-stupefiants"
+      },
+      {
+        "text": "40 leaders communautaires et représentants de 16 quartiers réunis pour un débat sur la gestion communale",
+        "project": "participation-gestion-communale"
+      }
+    ],
+    "status": "published"
+  },
+  {
+    "id": "bla-touna",
+    "name": "Bla et Touna",
+    "lat": 12.95,
+    "lon": -5.76,
+    "kind": "action",
+    "label": "right",
+    "items": [
+      {
+        "text": "100 enfants formés aux techniques de plantation, dont 60 filles, et 400 arbres plantés",
+        "project": "ma-planete-verte"
+      }
+    ],
+    "status": "published"
+  }
+]

@@ -1,0 +1,195 @@
+[
+  {
+    "id": "yeleen",
+    "slug": "association-yeleen",
+    "name": "Association YELEEN",
+    "detail": "Membre du consortium du projet DJIGUIYA",
+    "logo": {
+      "src": "/assets/images/partners/yeleen.png",
+      "width": 485,
+      "height": 295,
+      "source": "Photo de profil de la page Facebook « Yeleen » (Bamako)",
+      "retrieved": "2026-10-12",
+      "usageValidated": false
+    },
+    "url": null,
+    "source": "https://www.facebook.com/OlucosMali/",
+    "status": "published",
+    "group": "djiguiya"
+  },
+  {
+    "id": "women-tech-mali",
+    "slug": "women-tech-mali",
+    "name": "Women Tech Mali",
+    "detail": "Membre du consortium du projet DJIGUIYA",
+    "logo": {
+      "src": "/assets/images/partners/women-tech-mali.png",
+      "width": 400,
+      "height": 399,
+      "source": "Page Facebook de Women Tech Mali (photo de profil)",
+      "retrieved": "2026-10-12",
+      "usageValidated": false
+    },
+    "url": null,
+    "source": "https://www.facebook.com/OlucosMali/",
+    "status": "published",
+    "group": "djiguiya"
+  },
+  {
+    "id": "psaaf",
+    "slug": "psaaf",
+    "name": "PSAAF",
+    "detail": "Programme Spécial d'Aide aux Associations et Fondations — financement du projet DJIGUIYA",
+    "logo": {
+      "src": "/assets/images/partners/psaaf.png",
+      "width": 400,
+      "height": 388,
+      "source": "Page Facebook du PSAAF (photo de profil)",
+      "retrieved": "2026-10-12",
+      "usageValidated": false
+    },
+    "url": null,
+    "source": "https://www.facebook.com/OlucosMali/",
+    "status": "published",
+    "group": "djiguiya"
+  },
+  {
+    "id": "viamo",
+    "slug": "viamo",
+    "name": "VIAMO",
+    "detail": null,
+    "logo": {
+      "src": "/assets/images/partners/viamo.svg",
+      "width": 271,
+      "height": 95,
+      "source": "Site officiel viamo.io",
+      "retrieved": "2026-10-12",
+      "usageValidated": false
+    },
+    "url": null,
+    "status": "published"
+  },
+  {
+    "id": "international-alert",
+    "slug": "international-alert",
+    "name": "International Alert",
+    "detail": null,
+    "logo": {
+      "src": "/assets/images/partners/international-alert.svg",
+      "width": 59,
+      "height": 94,
+      "source": "Site officiel international-alert.org",
+      "retrieved": "2026-10-12",
+      "usageValidated": false
+    },
+    "url": null,
+    "status": "published"
+  },
+  {
+    "id": "save-the-children",
+    "slug": "save-the-children",
+    "name": "Save the Children",
+    "detail": "BALBARKA",
+    "logo": {
+      "src": "/assets/images/partners/save-the-children.svg",
+      "width": 609,
+      "height": 157,
+      "source": "Wikimedia Commons, Save the Children Logo.svg",
+      "retrieved": "2026-10-12",
+      "usageValidated": false
+    },
+    "url": null,
+    "status": "published"
+  },
+  {
+    "id": "orange-mali",
+    "slug": "orange-mali",
+    "name": "Orange Mali",
+    "detail": "Toxicomanie — KUNAFONI 37321",
+    "logo": {
+      "src": "/assets/images/partners/orange-mali.svg",
+      "width": 284,
+      "height": 284,
+      "source": "Wikimedia Commons, Orange_logo.svg",
+      "retrieved": "2026-10-12",
+      "usageValidated": false
+    },
+    "url": null,
+    "status": "published"
+  },
+  {
+    "id": "alphalog",
+    "slug": "ong-alphalog",
+    "name": "ONG ALPHALOG",
+    "detail": null,
+    "logo": {
+      "src": "/assets/images/partners/alphalog.png",
+      "width": 495,
+      "height": 395,
+      "source": "Photo de profil de la page Facebook « Association Libre pour la Promotion de l'Habitat et du Logement - Alphalog »",
+      "retrieved": "2026-10-12",
+      "usageValidated": false
+    },
+    "url": null,
+    "status": "published"
+  },
+  {
+    "id": "ocs",
+    "slug": "office-central-des-stupefiants",
+    "name": "Office Central des Stupéfiants",
+    "detail": null,
+    "logo": {
+      "src": "/assets/images/partners/ocs.png",
+      "width": 320,
+      "height": 409,
+      "source": "Page Facebook de l'Office Central des Stupéfiants (photo de profil)",
+      "retrieved": "2026-10-12",
+      "usageValidated": false
+    },
+    "url": null,
+    "status": "published"
+  },
+  {
+    "id": "cniecs",
+    "slug": "cniecs",
+    "name": "CNIECS",
+    "detail": "Centre National d'Information, d'Éducation et de Communication pour la Santé",
+    "logo": {
+      "src": "/assets/images/partners/cniecs.png",
+      "width": 268,
+      "height": 292,
+      "source": "Photo de profil de la page Facebook « Cniecs Mali » (page du centre, 5,1 K abonnés)",
+      "retrieved": "2026-10-12",
+      "usageValidated": false
+    },
+    "url": null,
+    "status": "published"
+  },
+  {
+    "id": "ts-com",
+    "slug": "ts-com",
+    "name": "TS COM",
+    "detail": null,
+    "logo": null,
+    "url": null,
+    "status": "published"
+  },
+  {
+    "id": "ets-okk",
+    "slug": "ets-okk",
+    "name": "ETS OKK",
+    "detail": null,
+    "logo": null,
+    "url": null,
+    "status": "published"
+  },
+  {
+    "id": "les-candaces",
+    "slug": "les-candaces",
+    "name": "Les CANDACES",
+    "detail": null,
+    "logo": null,
+    "url": null,
+    "status": "published"
+  }
+]

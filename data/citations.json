@@ -1,0 +1,28 @@
+[
+  {
+    "id": "competence-opportunite",
+    "text": "Chaque compétence peut devenir une opportunité.",
+    "author": "Olucos Mali",
+    "context": "à propos de la formation au henné du projet DJIGUIYA",
+    "date": null,
+    "project": "projet-djiguiya",
+    "source": {
+      "label": "Publication Facebook d'Olucos Mali",
+      "url": "https://www.facebook.com/OlucosMali/"
+    },
+    "status": "published"
+  },
+  {
+    "id": "seconde-chance",
+    "text": "… une seconde chance peut être le début d'une nouvelle histoire…",
+    "author": "Olucos Mali",
+    "context": "au démarrage des formations du projet DJIGUIYA",
+    "date": "2026-09-26",
+    "project": "projet-djiguiya",
+    "source": {
+      "label": "Publication Facebook d'Olucos Mali",
+      "url": "https://www.facebook.com/OlucosMali/"
+    },
+    "status": "published"
+  }
+]

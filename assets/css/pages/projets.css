@@ -1,0 +1,648 @@
+/* ==========================================================================
+   Page « Nos projets »
+   Direction : un catalogue imprimé plutôt qu'une pile de cartes.
+   Filets, grands titres, citations de l'ONG, photos de reportage.
+   ========================================================================== */
+
+/* ---- En-tête : les chiffres dans une phrase, pas dans un bandeau ---- */
+.page-hero__facts-text {
+  max-width: 52ch;
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--color-on-dark);
+}
+
+/* ---- En cours ---- */
+.ongoing__layout {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.ongoing__others {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+}
+
+@media (min-width: 64rem) {
+  .ongoing__layout {
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--space-7);
+    align-items: stretch;
+  }
+
+  .ongoing__layout .pfeature,
+  .ongoing__others {
+    height: 100%;
+  }
+
+  .ongoing__others {
+    align-content: stretch;
+  }
+}
+
+/* Statut du projet vedette, en texte (sans pastille qui pulse) */
+.pfeature__status--quiet {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  font-family: var(--font-display);
+  color: var(--olive-300);
+}
+
+/* Projet en cours sans photo, avec la frise des années */
+.ongoing-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  height: 100%;
+  padding: var(--space-6);
+  border-top: 2px solid var(--teal-900);
+  background: var(--paper-warm);
+}
+
+.ongoing-card__status {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--olive-700);
+}
+
+.ongoing-card__title {
+  font-size: var(--text-2xl);
+  color: var(--teal-900);
+}
+
+.ongoing-card__summary {
+  color: var(--color-text-muted);
+}
+
+.yearline {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+
+.yearline__years {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+.yearline__years::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: var(--line);
+}
+
+.yearline__year {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.yearline__dot {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--paper-warm);
+}
+
+.yearline__year.is-done .yearline__dot {
+  border-color: var(--teal-600);
+  background: var(--teal-600);
+}
+
+.yearline__year.is-now {
+  font-weight: 700;
+  color: var(--teal-900);
+}
+
+.yearline__year.is-now .yearline__dot {
+  border-color: var(--olive-600);
+  background: var(--olive-600);
+  box-shadow: 0 0 0 4px var(--olive-100);
+}
+
+.yearline__label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.ongoing-card__more {
+  align-self: flex-start;
+}
+
+/* ---- Sur le terrain : un bandeau de reportage compact ----
+   Trois photos sur une ligne (ordinateur) ou qui défilent (mobile) :
+   un interlude, pas une section à part entière. */
+.field {
+  padding-block: var(--space-7);
+  background: var(--teal-900);
+  color: var(--color-on-dark);
+}
+
+.field__title {
+  margin-bottom: var(--space-5);
+  font-size: var(--text-lg);
+  color: var(--color-on-dark);
+}
+
+.field__grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 78%;
+  gap: var(--space-3);
+  margin-inline: calc(-1 * var(--gutter));
+  padding: 0 var(--gutter) var(--space-2);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: thin;
+}
+
+.field__photo {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+  scroll-snap-align: start;
+}
+
+.field__photo img {
+  width: 100%;
+  height: 11rem;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.field__photo figcaption {
+  font-size: 0.8125rem;
+  line-height: var(--leading-snug);
+  color: var(--color-on-dark-muted);
+}
+
+@media (min-width: 48rem) {
+  .field__grid {
+    grid-auto-flow: row;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: var(--space-5);
+    margin-inline: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .field__photo img {
+    height: 16rem;
+  }
+}
+
+/* ---- Catalogue : mise en page avec la carte ---- */
+.catalog__count {
+  margin: var(--space-5) 0 var(--space-4);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.catalog__layout {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.catalog__aside {
+  order: -1;
+}
+
+.catalog__map {
+  max-width: 15rem;
+  margin-inline: auto;
+}
+
+.catalog__map-title {
+  font-size: var(--text-base);
+  color: var(--teal-900);
+  text-align: center;
+}
+
+.catalog__map-note {
+  min-height: 3em;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+@media (min-width: 64rem) {
+  .catalog__layout {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  .catalog__aside {
+    order: 0;
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-6));
+  }
+
+  .catalog__map {
+    max-width: none;
+    padding: var(--space-5);
+    border-top: 2px solid var(--teal-900);
+    background: var(--paper);
+  }
+
+  .catalog__map-title,
+  .catalog__map-note {
+    text-align: left;
+  }
+}
+
+/* ---- L'index des projets ---- */
+.project-list {
+  display: grid;
+  border-top: 2px solid var(--teal-900);
+}
+
+.project-item {
+  position: relative;
+  scroll-margin-top: calc(var(--header-height) + var(--space-5));
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-item:focus {
+  outline: none;
+}
+
+.project-item__card {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.project-item__media {
+  grid-column: 1 / -1;
+}
+
+.project-item__media img {
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+@media (min-width: 40rem) {
+  .project-item--impact .project-item__card {
+    grid-template-columns: minmax(0, 1fr) 14rem;
+    column-gap: var(--space-7);
+  }
+}
+
+.project-item__body {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+}
+
+.project-item__domains {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--olive-700);
+}
+
+.project-item__title {
+  max-width: 30ch;
+  font-size: clamp(1.3rem, 1.05rem + 1vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--teal-900);
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+.project-item:hover .project-item__title {
+  color: var(--teal-600);
+}
+
+.project-item__summary {
+  max-width: 62ch;
+  color: var(--color-text-muted);
+}
+
+.project-item__dateline {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--teal-800);
+}
+
+/* Lien de soutien : présent, mais discret */
+.project-item__support {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--teal-600);
+  text-decoration: underline;
+  text-decoration-color: var(--teal-300);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+
+.project-item__support:hover {
+  color: var(--teal-800);
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 2px;
+}
+
+/* Projet relié au lieu survolé, ou ciblé par un lien : un trait dans la marge */
+.project-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-4));
+  top: var(--space-6);
+  bottom: var(--space-6);
+  width: 3px;
+  border-radius: 2px;
+  background: var(--teal-600);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.project-item.is-linked::before,
+.project-item.is-target::before {
+  transform: none;
+}
+
+.project-item.is-target::before {
+  background: var(--olive-600);
+}
+
+.project-item.is-linked .project-item__title,
+.project-item.is-target .project-item__title {
+  color: var(--teal-600);
+}
+
+.js .project-item.is-target {
+  animation: target-in 1600ms var(--ease-out);
+}
+
+@keyframes target-in {
+  from { background: var(--olive-50); }
+  to { background: transparent; }
+}
+
+/* Chiffre clé en points (1 point = n personnes) : une colonne, sans boîte */
+.pimpact {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 40rem) {
+  .pimpact {
+    padding: 0 0 0 var(--space-5);
+    border-top: 0;
+    border-left: 2px solid var(--olive-300);
+  }
+}
+
+.pimpact__figure {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.pimpact__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.25rem, 1.8rem + 1.6vw, 2.75rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--olive-700);
+}
+
+.pimpact__label {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--teal-900);
+}
+
+.pimpact__note {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.pimpact__dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.pimpact__dot {
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid var(--teal-600);
+  border-radius: 50%;
+}
+
+.pimpact__dot.is-filled {
+  background: var(--teal-600);
+}
+
+.pimpact__legend {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+/* ---- Citations de l'ONG, dans le fil de l'index ---- */
+.project-quote {
+  padding-block: var(--space-8);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-quote__text p {
+  max-width: 28ch;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 1.15rem + 1.8vw, 2.3rem);
+  line-height: 1.25;
+  color: var(--teal-900);
+  text-wrap: balance;
+}
+
+.project-quote__source {
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---- États ---- */
+.project-list__empty {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.project-list__empty p:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Apparition de l'index à son arrivée (une fois) */
+.js .project-list:not(.is-in) > li {
+  opacity: 0;
+}
+
+.js .project-list.is-in > li {
+  animation: rise 550ms var(--ease-out) both;
+}
+
+/* Chargement : la place est réservée pour que la page ne saute pas (CLS).
+   Hauteurs mesurées sur le contenu réel : ~1130 px en mobile/tablette, ~700 px sur ordinateur. */
+[data-ongoing][aria-busy="true"],
+[data-project-list][aria-busy="true"] {
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--teal-50);
+  color: var(--color-text-muted);
+}
+
+[data-ongoing][aria-busy="true"] {
+  min-height: 70rem;
+}
+
+[data-project-list][aria-busy="true"] {
+  min-height: 40rem;
+}
+
+@media (min-width: 64rem) {
+  [data-ongoing][aria-busy="true"] {
+    min-height: 41rem;
+  }
+}
+
+/* ---- Carte du Mali : survol dans les deux sens ---- */
+.map-marker.is-dim .map-marker__dot {
+  background: var(--line-strong);
+}
+
+.map-marker.is-dim .map-marker__dot::after {
+  display: none;
+}
+
+.map-marker.is-dim .map-marker__label {
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* Ségou et Bla ne sont qu'à ~11 px l'un de l'autre : ce sont les étiquettes
+   (qui ne se chevauchent pas) et les points qui réagissent, pas le cadre entier. */
+.catalog__map .map-marker {
+  pointer-events: none;
+}
+
+.catalog__map .map-marker__label,
+.catalog__map .map-marker__dot {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.catalog__map .map-marker__dot {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
+/* Le halo qui pulse ne doit jamais capter le survol : en grandissant,
+   il passait sous le curseur et « volait » le survol aux lieux voisins. */
+.catalog__map .map-marker__dot::after {
+  pointer-events: none;
+}
+
+.catalog__map [data-focus] .map-marker:not([data-active]) {
+  opacity: 0.35;
+  transition-delay: 0ms;
+}
+
+.catalog__map .map-marker[data-active] {
+  z-index: 2;
+}
+
+.catalog__map .map-marker[data-active] .map-marker__dot {
+  transform: scale(1.7);
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--teal-300);
+  transition-delay: 0ms;
+}
+
+.catalog__map .map-marker[data-active] .map-marker__label {
+  background: var(--teal-900);
+  color: var(--paper);
+}
+
+/* Après l'apparition, plus aucun délai : le survol répond immédiatement */
+.js [data-map][data-ready] .map-marker,
+.js [data-map][data-ready] .map-marker__dot {
+  transition-delay: 0ms;
+}
+
+/* ---- Appel final ---- */
+.support {
+  background: var(--teal-50);
+}
+
+.support__inner {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.support h2 {
+  margin-bottom: var(--space-3);
+  color: var(--teal-900);
+}
+
+.support p {
+  color: var(--color-text-muted);
+}
+
+.support__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+}
+
+@media (max-width: 47.99rem) {
+  .support__actions .button {
+    flex: 1 1 100%;
+  }
+
+  .support__actions .link-strong {
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 64rem) {
+  .support__inner {
+    grid-template-columns: 1fr auto;
+    gap: var(--space-8);
+  }
+}

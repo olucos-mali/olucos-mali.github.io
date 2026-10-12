@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Page « Adhésion » : même mise en page que Contact (contact.css est chargé avant),
+   avec la rangée de points « une place vous attend » et la liste de provenance.
+   ========================================================================== */
+
+/* ---- Rangée de points : la dernière place est vide, elle se remplit à l'envoi ---- */
+.join-line {
+  display: grid;
+  gap: var(--space-2);
+  padding-block: var(--space-3);
+  border-block: 1px solid rgb(255 255 255 / 0.14);
+}
+
+.join-line__dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.join-line__dots i {
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  background: var(--olive-300);
+}
+
+.join-line__dots .join-line__free {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px var(--olive-300);
+  transition: background-color var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out);
+}
+
+.join-line.is-joined .join-line__free {
+  background: var(--olive-300);
+  transform: scale(1.2);
+}
+
+.join-line__text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-on-dark);
+}
+
+/* ---- Question avant d'adhérer ---- */
+.adhesion__ask {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.adhesion__ask-title {
+  font-size: var(--text-base);
+  color: var(--color-on-dark);
+}
+
+.adhesion__ask-mail {
+  font-size: var(--text-sm);
+}
+
+.adhesion__ask-mail a {
+  color: var(--color-on-dark);
+}
+
+/* ---- Liste déroulante « Comment avez-vous entendu parler… » ---- */
+.select-field {
+  position: relative;
+}
+
+.select-field .field__input {
+  appearance: none;
+  padding-right: var(--space-7);
+  cursor: pointer;
+}
+
+/* Les choix gardent un fond et un texte explicites : lisibles quel que soit le thème du système */
+.select-field option {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+.select-field .icon {
+  position: absolute;
+  top: 50%;
+  right: var(--space-3);
+  width: 1rem;
+  height: 1rem;
+  translate: 0 -50%;
+  color: var(--teal-600);
+  pointer-events: none;
+}
+
+/* ---- Mention d'information sous le formulaire ---- */
+.adhesion__note {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---- Progression : huit points, ils se replient sur deux lignes si besoin ---- */
+.adhesion .form__progress {
+  flex-wrap: wrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .join-line__dots .join-line__free {
+    transition: none;
+  }
+}

@@ -1,0 +1,109 @@
+[
+  {
+    "id": "djiguiya-coiffure",
+    "slug": "djiguiya-coiffure",
+    "title": "Coiffure",
+    "project": "projet-djiguiya",
+    "location": "District de Bamako",
+    "status": "published",
+    "source": {
+      "label": "Page Facebook d'Olucos Mali",
+      "url": "https://www.facebook.com/OlucosMali/",
+      "retrieved": "2026-10-08"
+    },
+    "coverImage": {
+      "base": "/assets/images/photos/djiguiya-presentation",
+      "widths": [
+        538
+      ],
+      "width": 538,
+      "height": 359,
+      "alt": "La formatrice présente le projet et le matériel de coiffure devant le groupe."
+    }
+  },
+  {
+    "id": "djiguiya-henne",
+    "slug": "djiguiya-henne",
+    "title": "Henné",
+    "project": "projet-djiguiya",
+    "location": "District de Bamako",
+    "status": "published",
+    "source": {
+      "label": "Page Facebook d'Olucos Mali",
+      "url": "https://www.facebook.com/OlucosMali/",
+      "retrieved": "2026-10-08"
+    },
+    "coverImage": {
+      "base": "/assets/images/photos/djiguiya-henne-pied",
+      "widths": [
+        640,
+        810
+      ],
+      "width": 810,
+      "height": 760,
+      "alt": "Une participante dessine un motif de henné sur un pied modèle en papier."
+    }
+  },
+  {
+    "id": "djiguiya-maquillage",
+    "slug": "djiguiya-maquillage",
+    "title": "Maquillage",
+    "project": "projet-djiguiya",
+    "location": "District de Bamako",
+    "status": "published",
+    "source": {
+      "label": "Page Facebook d'Olucos Mali",
+      "url": "https://www.facebook.com/OlucosMali/",
+      "retrieved": "2026-10-08"
+    },
+    "coverImage": {
+      "base": "/assets/images/photos/djiguiya-maquillage-geste",
+      "widths": [
+        640,
+        960
+      ],
+      "width": 960,
+      "height": 816,
+      "alt": "Séance de maquillage : une formatrice applique le crayon sur les yeux d'une participante."
+    }
+  },
+  {
+    "id": "djiguiya-maraichage",
+    "slug": "djiguiya-maraichage",
+    "title": "Maraîchage",
+    "project": "projet-djiguiya",
+    "location": "District de Bamako",
+    "status": "published",
+    "source": {
+      "label": "Page Facebook d'Olucos Mali",
+      "url": "https://www.facebook.com/OlucosMali/",
+      "retrieved": "2026-10-08"
+    }
+  },
+  {
+    "id": "djiguiya-savonnerie",
+    "slug": "djiguiya-savonnerie",
+    "title": "Savonnerie",
+    "project": "projet-djiguiya",
+    "location": "District de Bamako",
+    "status": "published",
+    "source": {
+      "label": "Page Facebook d'Olucos Mali",
+      "url": "https://www.facebook.com/OlucosMali/",
+      "retrieved": "2026-10-08"
+    }
+  },
+  {
+    "id": "djiguiya-transformation-agroalimentaire",
+    "slug": "djiguiya-transformation-agroalimentaire",
+    "title": "Transformation agroalimentaire",
+    "project": "projet-djiguiya",
+    "location": "District de Bamako",
+    "status": "published",
+    "source": {
+      "label": "Page Facebook d'Olucos Mali",
+      "url": "https://www.facebook.com/OlucosMali/",
+      "retrieved": "2026-10-08"
+    }
+  }
+]

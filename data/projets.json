@@ -1,0 +1,351 @@
+[
+  {
+    "id": "djiguiya",
+    "slug": "projet-djiguiya",
+    "title": "Projet DJIGUIYA",
+    "summary": "Formations professionnelles et kits de démarrage pour renforcer l'autonomisation économique de 110 femmes et hommes du District de Bamako, avec sensibilisation aux risques liés aux drogues et accompagnement psychosocial des jeunes.",
+    "description": "Mis en œuvre par le consortium OLUCOS Mali – Women Tech Mali – Association YELEEN, avec le financement du Programme Spécial d'Aide aux Associations et Fondations (PSAAF 4). Formations : coiffure, henné, maquillage, maraîchage, savonnerie, transformation agroalimentaire. Une foire d'exposition est prévue pour présenter les produits des bénéficiaires.",
+    "beneficiaries": "110 femmes et hommes du District de Bamako",
+    "domains": [
+      "autonomisation",
+      "formation",
+      "prevention"
+    ],
+    "zone": "District de Bamako",
+    "period": "septembre 2026, pour 6 mois",
+    "projectStatus": "en-cours",
+    "featured": true,
+    "coverImage": {
+      "base": "/assets/images/photos/djiguiya-formation-ensemble",
+      "widths": [
+        800,
+        1400
+      ],
+      "width": 1400,
+      "height": 749,
+      "alt": "Séance de formation du projet DJIGUIYA en plein air : des formatrices en gilets jaunes accompagnent des participantes assises sur des tabourets.",
+      "placeholder": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAANABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwCLSJ57G0ghG1TM3ms5IO1Mfoa0mnmmU2m/gRl3lbr14FZ1zK80xyQpDYyAOV9K2rJfPt5g/VwASKitGcXduyCnLnjdGXe31zc6SbaJcS/dyrc8H196Kdq9uLMR+QxXeNvrj3oqoxlJXTKeh//Z"
+    },
+    "source": {
+      "label": "Page Facebook d'Olucos Mali",
+      "url": "https://www.facebook.com/OlucosMali/"
+    },
+    "status": "published",
+    "startDate": "2026-09-22",
+    "durationMonths": 6,
+    "keyFigure": {
+      "value": "110",
+      "label": "femmes et hommes du District de Bamako en formation professionnelle",
+      "count": 110,
+      "perDot": 10,
+      "unit": "personnes"
+    },
+    "consortium": "En consortium avec Women Tech Mali et l'association YELEEN, avec le financement du PSAAF.",
+    "catalogImage": {
+      "base": "/assets/images/photos/djiguiya-maquillage-geste",
+      "widths": [
+        640,
+        960
+      ],
+      "width": 960,
+      "height": 816,
+      "alt": "Une formatrice applique du maquillage sur les paupières d'une participante, pendant la formation du projet DJIGUIYA.",
+      "placeholder": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAAUABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwBYNXjF0gkLKFPSumS5heNJA4Cv0JrH1O3sJ5mtGCwTYyjDjP41XudsOnQWzzhJYSDkd8VyOu+flt1/DuVe+xX8VXF2tx51m7bIxscoenvRWbqyGH543yJOJFB65orqUU1cUnZ2NTxIqy2rTMP3iOMEfSqmgRrJcRySDezEgluaKKxqv90/mTP4yxpiJNrs0Miho1YkA9qKKK8utOUWrPoVLU//2Q=="
+    }
+  },
+  {
+    "id": "ept-r3o",
+    "slug": "emploi-pour-tous-ept-r3o",
+    "title": "EMPLOI POUR TOUS — EPT-R3O",
+    "summary": "Projet du Plan Stratégique 2024-2028 : emploi des jeunes, protection des femmes, prévention de l'usage de stupéfiants, formations et stages.",
+    "domains": [
+      "formation",
+      "protection",
+      "prevention"
+    ],
+    "zone": null,
+    "period": "2024-2028",
+    "projectStatus": "en-cours",
+    "featured": true,
+    "status": "published",
+    "startYear": 2024,
+    "endYear": 2028,
+    "programme": "Plan stratégique 2024-2028"
+  },
+  {
+    "id": "ma-planete-verte",
+    "slug": "ma-planete-verte",
+    "title": "Ma Planète Verte",
+    "summary": "Formation de 100 enfants, dont 60 filles, aux techniques de plantation et plantation de 400 arbres dans les zones rurales de Bla et Touna.",
+    "domains": [
+      "formation"
+    ],
+    "zone": "Bla et Touna",
+    "period": null,
+    "projectStatus": null,
+    "featured": true,
+    "status": "published",
+    "keyFigure": {
+      "value": "100",
+      "label": "enfants formés aux techniques de plantation, dont 60 filles",
+      "note": "et 400 arbres plantés",
+      "count": 100,
+      "perDot": 5,
+      "highlight": 60,
+      "unit": "enfants",
+      "highlightLabel": "filles"
+    }
+  },
+  {
+    "id": "mousow-koungo",
+    "slug": "mousow-koungo",
+    "title": "Mousow Koungo",
+    "summary": "Sensibilisation VBG, renforcement des capacités et campagnes de dépistage du cancer du col de l'utérus et des IST.",
+    "domains": [
+      "vbg",
+      "sante"
+    ],
+    "zone": null,
+    "period": null,
+    "projectStatus": null,
+    "featured": true,
+    "status": "published"
+  },
+  {
+    "id": "ma-jeunesse-sans-drogue",
+    "slug": "ma-jeunesse-sans-drogue",
+    "title": "Ma Jeunesse Sans Drogue — Protection des Femmes et Enfants Vulnérables",
+    "summary": "Projet de prévention et de protection face aux risques liés aux stupéfiants, à la pauvreté, aux conflits et aux vulnérabilités.",
+    "domains": [
+      "prevention",
+      "protection"
+    ],
+    "zone": null,
+    "period": null,
+    "projectStatus": null,
+    "featured": true,
+    "status": "published"
+  },
+  {
+    "id": "femmes-leaders",
+    "slug": "femmes-leaders",
+    "title": "Femmes Leaders",
+    "summary": "Renforcement des compétences et participation des femmes à la gestion communale et au leadership local.",
+    "domains": [
+      "autonomisation"
+    ],
+    "zone": null,
+    "period": null,
+    "projectStatus": null,
+    "featured": true,
+    "status": "published"
+  },
+  {
+    "id": "cycle-menstruel",
+    "slug": "gestion-cycle-menstruel",
+    "title": "Gestion du cycle menstruel",
+    "summary": "Distribution de kits hygiéniques et formation sur la gestion de l'hygiène menstruelle.",
+    "domains": [
+      "sante"
+    ],
+    "zone": null,
+    "period": null,
+    "projectStatus": null,
+    "featured": true,
+    "status": "published"
+  },
+  {
+    "id": "club-demandeurs-emploi",
+    "slug": "club-demandeurs-emploi",
+    "title": "Club pour les Demandeurs d'Emploi de l'ONG Olucos Mali",
+    "summary": "Communauté de 300 jeunes diplômés : formations, ateliers de développement personnel et réseautage.",
+    "domains": [
+      "formation"
+    ],
+    "zone": null,
+    "period": null,
+    "projectStatus": null,
+    "featured": false,
+    "status": "published",
+    "keyFigure": {
+      "value": "300",
+      "label": "jeunes diplômés dans la communauté du Club",
+      "count": 300,
+      "perDot": 10,
+      "unit": "jeunes"
+    }
+  },
+  {
+    "id": "jeunesse-opportunites",
+    "slug": "jeunesse-et-opportunites",
+    "title": "Jeunesse et Opportunités",
+    "summary": "Formation des jeunes à des métiers qualifiants pour favoriser leur intégration sur le marché du travail.",
+    "domains": [
+      "formation"
+    ],
+    "zone": null,
+    "period": null,
+    "projectStatus": null,
+    "featured": false,
+    "status": "published"
+  },
+  {
+    "id": "agri-boost",
+    "slug": "agri-boost",
+    "title": "AGRI-BOOST",
+    "summary": "Formation des jeunes en agriculture et agrobusiness afin de réduire le chômage et stimuler l'entrepreneuriat.",
+    "domains": [
+      "formation"
+    ],
+    "zone": null,
+    "period": null,
+    "projectStatus": null,
+    "featured": false,
+    "status": "published",
+    "coverImage": {
+      "base": "/assets/images/photos/agriboost-attestation",
+      "widths": [
+        600,
+        960
+      ],
+      "width": 960,
+      "height": 1024,
+      "alt": "Remise d'une attestation du projet AGRI-BOOST à une jeune formée, devant le kakémono du projet."
+    },
+    "catalogImage": {
+      "base": "/assets/images/photos/agriboost-attestation",
+      "widths": [
+        600,
+        960
+      ],
+      "width": 960,
+      "height": 1024,
+      "alt": "Remise d'une attestation du projet AGRI-BOOST à une jeune formée, devant le kakémono du projet."
+    },
+    "description": "Le 10 octobre 2026, remise des attestations aux jeunes formés à l'agriculture urbaine et à l'agro-entrepreneuriat, et lancement d'OLUCOS Green Impact. Projet financé par le PSAAF.",
+    "source": {
+      "label": "Publication Facebook d'Olucos Mali",
+      "url": "https://www.facebook.com/OlucosMali/posts/pfbid02QTxJ1fN5gLW2x2ghRKRw2erju2uJf3v3Eknq7o5uG9CSkRbUtqCYjHhnE5984F41l",
+      "retrieved": "2026-10-12"
+    }
+  },
+  {
+    "id": "sinignesigi-baara",
+    "slug": "sinignesigi-baara-caravane",
+    "title": "SINIGNESIGI BAARA — Caravane de Sensibilisation",
+    "summary": "Campagne ayant touché environ 1 500 personnes, dont 60 % de femmes.",
+    "domains": [],
+    "zone": null,
+    "period": null,
+    "projectStatus": null,
+    "featured": false,
+    "status": "published",
+    "keyFigure": {
+      "value": "≈ 1 500",
+      "label": "personnes touchées, dont 60 % de femmes",
+      "count": 1500,
+      "perDot": 50,
+      "highlight": 900,
+      "unit": "personnes",
+      "highlightLabel": "femmes"
+    }
+  },
+  {
+    "id": "conference-stupefiants",
+    "slug": "conference-debat-stupefiants",
+    "title": "Conférence-débat sur la consommation et le trafic des stupéfiants",
+    "summary": "Atelier à Ségou réunissant 40 jeunes issus de diverses associations.",
+    "domains": [
+      "prevention"
+    ],
+    "zone": "Ségou",
+    "period": null,
+    "projectStatus": null,
+    "featured": false,
+    "status": "published",
+    "keyFigure": {
+      "value": "40",
+      "label": "jeunes de diverses associations, à Ségou",
+      "count": 40,
+      "perDot": 2,
+      "unit": "jeunes"
+    }
+  },
+  {
+    "id": "gestion-communale",
+    "slug": "participation-gestion-communale",
+    "title": "Participation des jeunes et des femmes à la gestion communale",
+    "summary": "Débat réunissant 40 leaders communautaires et représentants de 16 quartiers à Ségou.",
+    "domains": [
+      "autonomisation"
+    ],
+    "zone": "Ségou",
+    "period": null,
+    "projectStatus": null,
+    "featured": false,
+    "status": "published",
+    "keyFigure": {
+      "value": "40",
+      "label": "leaders communautaires et représentants de 16 quartiers, à Ségou",
+      "count": 40,
+      "perDot": 2,
+      "unit": "participants"
+    }
+  },
+  {
+    "id": "atelier-entrepreneuriat",
+    "slug": "atelier-entrepreneuriat",
+    "title": "Atelier de formation sur l'entrepreneuriat",
+    "summary": "Renforcement des capacités des jeunes en entrepreneuriat et communication.",
+    "domains": [
+      "formation"
+    ],
+    "zone": null,
+    "period": null,
+    "projectStatus": null,
+    "featured": false,
+    "status": "published"
+  },
+  {
+    "id": "entrepreneuriat-femmes",
+    "slug": "entrepreneuriat-femmes",
+    "title": "Entrepreneuriat pour les femmes",
+    "summary": "Formations sur l'entrepreneuriat, les abus liés aux stupéfiants, la protection des enfants et l'insertion socio-professionnelle.",
+    "domains": [
+      "autonomisation"
+    ],
+    "zone": null,
+    "period": null,
+    "projectStatus": null,
+    "featured": false,
+    "status": "published"
+  },
+  {
+    "id": "grossesses-non-desirees",
+    "slug": "prevention-grossesses-non-desirees",
+    "title": "Prévention des grossesses non désirées",
+    "summary": "Campagnes sur les méthodes contraceptives et les risques associés.",
+    "domains": [
+      "sante"
+    ],
+    "zone": null,
+    "period": null,
+    "projectStatus": null,
+    "featured": false,
+    "status": "published"
+  },
+  {
+    "id": "kunafoni",
+    "slug": "script-toxicomanie-kunafoni",
+    "title": "Script sur la toxicomanie — KUNAFONI",
+    "summary": "Contenus de sensibilisation réalisés avec Orange Mali via le service KUNAFONI 37 321.",
+    "domains": [
+      "prevention"
+    ],
+    "zone": null,
+    "period": null,
+    "projectStatus": null,
+    "featured": false,
+    "status": "published"
+  }
+]

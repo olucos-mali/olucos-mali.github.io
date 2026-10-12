@@ -1,0 +1,142 @@
+/* ==========================================================================
+   Tokens — Olucos Mali
+   Source : docs/charte-graphique.md. Aucune couleur, taille ou durée
+   ne doit être écrite en dur ailleurs que dans ce fichier.
+   ========================================================================== */
+
+:root {
+  /* ---- Couleurs de marque (logo) ---- */
+  --teal-900: #003333;
+  --teal-800: #004242;
+  --teal-700: #005252;
+  --teal-600: #006666;   /* primaire — 6,8:1 sur blanc */
+  --teal-300: #99C2C2;   /* décor uniquement */
+  --teal-100: #D9E8E8;
+  --teal-50:  #EBF3F3;
+
+  --olive-700: #525229;
+  --olive-600: #666633;  /* secondaire — 6,0:1 sur blanc */
+  --olive-300: #C2C2AD;
+  --olive-100: #E8E8E0;
+  --olive-50:  #F3F3EF;
+
+  /* ---- Neutres ---- */
+  --ink:         #1A1F1F;  /* 15,9:1 */
+  --ink-muted:   #4A5553;  /* 7,4:1 */
+  --paper:       #FFFFFF;
+  --paper-warm:  #FAFAF7;
+  --line:        #DCE3E1;  /* séparateurs (décor) */
+  --line-strong: #7A8785;  /* bordures de champs — 3,7:1 */
+  --error:       #B3261E;  /* 6,5:1 */
+  --error-bg:    #FDF4F3;  /* fond des messages d'erreur ; --error dessus : 6,0:1 */
+
+  /* ---- Rôles ---- */
+  --color-bg:            var(--paper);
+  --color-bg-alt:        var(--paper-warm);
+  --color-text:          var(--ink);
+  --color-text-muted:    var(--ink-muted);
+  --color-link:          var(--teal-600);
+  --color-link-hover:    var(--teal-800);
+  --color-primary:       var(--teal-600);
+  --color-primary-hover: var(--teal-700);
+  --color-on-primary:    var(--paper);
+  --color-accent:        var(--olive-600);
+  --color-accent-hover:  var(--olive-700);
+  --color-on-accent:     var(--paper);
+  --color-focus:         var(--teal-600);
+  --color-dark-bg:       var(--teal-900);
+  --color-on-dark:       var(--paper);
+  --color-on-dark-muted: #CCE0E0;  /* 8,8:1 sur --teal-900 */
+
+  /* ---- Typographie ---- */
+  --font-display: "Montserrat", "Montserrat Fallback", system-ui, sans-serif;
+  --font-body: "Source Sans 3", "Source Sans Fallback", system-ui, sans-serif;
+
+  /* Échelle fluide (mobile → bureau), rapport ≈ 1,25 */
+  --text-sm:   0.9375rem;                               /* 15px */
+  --text-base: 1.0625rem;                               /* 17px */
+  --text-lg:   clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  --text-xl:   clamp(1.3125rem, 1.15rem + 0.7vw, 1.75rem);
+  --text-2xl:  clamp(1.625rem, 1.3rem + 1.4vw, 2.5rem);
+  --text-3xl:  clamp(2.125rem, 1.5rem + 2.9vw, 3.75rem);
+
+  --leading-tight: 1.15;
+  --leading-snug:  1.3;
+  --leading-body:  1.6;
+
+  --measure: 66ch;
+
+  /* ---- Espacements (base 4px) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --section-gap: clamp(2.75rem, 1.6rem + 5vw, 7rem);
+  --gutter: clamp(1rem, 0.6rem + 2vw, 2rem);
+  --container: 75rem;      /* 1200px */
+  --container-narrow: 46rem;
+
+  /* ---- Formes ---- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --shadow-raised: 0 1px 2px rgb(0 51 51 / 0.06), 0 8px 24px -12px rgb(0 51 51 / 0.18);
+  --header-height: 4.5rem;
+
+  /* ---- Mouvement ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+  --duration-slow: 600ms;
+  --duration-gather: 1400ms;   /* rassemblement des points du hero */
+}
+
+/* Polices auto-hébergées (sous-ensemble latin, axe de graisse limité) */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assets/fonts/montserrat-latin-var.woff2") format("woff2");
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("/assets/fonts/source-sans-3-latin-var.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Polices de repli ajustées pour limiter le décalage au chargement */
+@font-face {
+  font-family: "Montserrat Fallback";
+  src: local("Arial");
+  size-adjust: 113%;
+  ascent-override: 85%;
+  descent-override: 22%;
+}
+
+@font-face {
+  font-family: "Source Sans Fallback";
+  src: local("Arial");
+  size-adjust: 92%;
+  ascent-override: 106%;
+  descent-override: 29%;
+}
+
+/* Italique réel (et non un faux italique penché par le navigateur) : citations uniquement */
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("/assets/fonts/source-sans-3-latin-italic-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}

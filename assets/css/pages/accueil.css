@@ -1,0 +1,947 @@
+/* ==========================================================================
+   Page d'accueil — une histoire en 5 actes
+   1. Rencontre (hero) · 2. Preuve (les points deviennent des enfants)
+   3. Lieu (le Mali en points) · 4. Action (domaines, projets)
+   5. Confiance (vision, partenaires) · Appel (la place vide)
+   ========================================================================== */
+
+/* ---- 1. Hero : photo plein cadre ----
+   Le titre dit ce que fait l'ONG ; le slogan est visible sur la banderole de la photo.
+   Un voile sarcelle foncé porte le texte à gauche, les visages restent dégagés à droite. */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--teal-900);
+  color: var(--color-on-dark);
+}
+
+.hero__media {
+  position: relative;
+  margin: 0;
+}
+
+.hero__photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* Mobile : la photo se fond dans le bloc sarcelle qui porte le texte */
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(0 51 51 / 0) 55%, rgb(0 51 51 / 0.85) 88%, var(--teal-900) 100%);
+  pointer-events: none;
+}
+
+.hero__credit {
+  display: none;
+}
+
+.hero__inner {
+  position: relative;
+  padding-block: var(--space-2) var(--space-7);
+}
+
+.hero__text {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 38rem;
+}
+
+.hero__title {
+  font-size: clamp(1.75rem, 1.15rem + 2.6vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-on-dark);
+  text-wrap: balance;
+}
+
+.hero__lead {
+  font-size: var(--text-lg);
+  color: var(--color-on-dark-muted);
+  max-width: 46ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+/* Une seule animation, au chargement : la photo se pose, le texte apparaît */
+.js .hero__photo {
+  animation: hero-settle 1800ms var(--ease-out) both;
+}
+
+.js .hero__text > * {
+  animation: hero-text-in 700ms var(--ease-out) both;
+}
+
+.js .hero__text > :nth-child(2) { animation-delay: 120ms; }
+.js .hero__text > :nth-child(3) { animation-delay: 240ms; }
+
+@keyframes hero-settle {
+  from { transform: scale(1.06); }
+  to { transform: none; }
+}
+
+@keyframes hero-text-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Utilisées par la section finale (la flèche qui se reforme) */
+@keyframes gather {
+  from { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.6); }
+  35% { opacity: 1; }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes caption-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (min-width: 48rem) {
+  .hero {
+    display: grid;
+    align-items: end;
+    min-height: clamp(34rem, 84vh, 48rem);
+  }
+
+  .hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .hero__photo {
+    height: 100%;
+    aspect-ratio: auto;
+    object-position: 62% 55%;
+  }
+
+  /* Voile : dense sous le texte (contraste ≥ 7:1), transparent sur les visages */
+  .hero__media::after {
+    background:
+      linear-gradient(90deg, rgb(0 51 51 / 0.95) 0%, rgb(0 51 51 / 0.9) 42%, rgb(0 51 51 / 0.6) 62%, rgb(0 51 51 / 0.12) 80%, rgb(0 51 51 / 0) 90%),
+      linear-gradient(0deg, rgb(0 51 51 / 0.55) 0%, rgb(0 51 51 / 0) 35%);
+  }
+
+  .hero__credit {
+    display: block;
+    position: absolute;
+    right: var(--gutter);
+    bottom: var(--space-4);
+    z-index: 1;
+    max-width: 22rem;
+    font-size: 0.8125rem;
+    text-align: right;
+    color: rgb(255 255 255 / 0.85);
+    text-shadow: 0 1px 2px rgb(0 0 0 / 0.5);
+  }
+
+  .hero__inner {
+    padding-block: var(--space-9) var(--space-8);
+  }
+
+  /* Tablette : le texte reste dans la partie sombre du voile */
+  .hero__text {
+    max-width: min(38rem, 56vw);
+  }
+}
+
+/* ---- 2. Preuve ---- */
+.proof__inner {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.proof__key {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-lg);
+  color: var(--olive-700);
+  margin-bottom: calc(-1 * var(--space-4));
+}
+
+.proof .waffle__grid svg {
+  max-width: 15rem;
+}
+
+.proof .waffle__figure {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 48rem) {
+  .proof .waffle__grid svg {
+    max-width: 24rem;
+  }
+
+  .proof .waffle__figure {
+    font-size: var(--text-2xl);
+  }
+}
+
+.proof__more {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.proof__more-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.stats {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.stat {
+  position: relative;
+  display: grid;
+  gap: var(--space-1);
+  padding-top: var(--space-4);
+}
+
+/* Le filet se trace de gauche à droite, dans le sens de la flèche */
+.stat::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--olive-600);
+  transform-origin: left;
+}
+
+.js .stat::before {
+  transition: transform 800ms var(--ease-out);
+}
+
+.js .stats .stat:nth-child(2)::before {
+  transition-delay: 160ms;
+}
+
+.js .stats:not(.is-in) .stat::before {
+  transform: scaleX(0);
+}
+
+.stat__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--olive-700);
+}
+
+.stat__source {
+  margin-top: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 48rem) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+/* ---- 3. Lieu ---- */
+.places__inner {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.places__text {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.mali-map {
+  max-width: 20rem;
+  justify-self: center;
+  width: 100%;
+}
+
+@media (min-width: 56rem) {
+  .places__inner {
+    grid-template-columns: 1fr 1.1fr;
+    grid-template-areas:
+      "text map"
+      "list map";
+    grid-template-rows: auto 1fr;
+    column-gap: var(--space-9);
+    row-gap: var(--space-6);
+    align-items: start;
+  }
+
+  .places__text { grid-area: text; }
+  .place-list { grid-area: list; }
+
+  .mali-map {
+    grid-area: map;
+    align-self: center;
+    max-width: 34rem;
+  }
+}
+
+/* ---- 4. Action : domaines ---- */
+.domains__head {
+  display: grid;
+  grid-template-columns: 1fr 5.5rem;
+  align-items: start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.domains__head .section__head {
+  margin-bottom: 0;
+  justify-items: start;
+}
+
+.domains__photo {
+  position: relative;
+  isolation: isolate;
+  max-width: 15rem;
+  margin-top: var(--space-2);
+}
+
+.domains__photo img {
+  border-radius: var(--radius-lg);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* Trame de points discrète derrière la photo (motif de marque) */
+.domains__photo::before {
+  content: "";
+  position: absolute;
+  inset: auto -0.75rem -0.75rem auto;
+  width: 70%;
+  height: 70%;
+  z-index: -1;
+  background-image: radial-gradient(var(--olive-300) 1.6px, transparent 1.8px);
+  background-size: 14px 14px;
+}
+
+@media (min-width: 48rem) {
+  .domains__head {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-8);
+    margin-bottom: var(--space-6);
+  }
+
+  .domains__photo {
+    max-width: 17rem;
+    margin-top: 0;
+  }
+
+  .domains__photo::before {
+    inset: auto -1.5rem -1.5rem auto;
+  }
+}
+
+/* ---- 5. Confiance : la vision et les valeurs, une pause sombre ----
+   Seule bande sarcelle foncé au milieu de la page : elle casse le rythme
+   des sections claires. Aucune animation (le silence), sauf le geste des trois points. */
+.vision {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(4rem, 2.8rem + 6vw, 8rem);
+  background: var(--teal-900);
+  color: var(--color-on-dark);
+}
+
+/* Trame de points discrète, qui s'efface vers la gauche pour laisser respirer le texte */
+.vision::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(rgb(153 194 194 / 0.16) 1.6px, transparent 2px);
+  background-size: 22px 22px;
+  -webkit-mask-image: linear-gradient(100deg, transparent 20%, #000 75%);
+  mask-image: linear-gradient(100deg, transparent 20%, #000 75%);
+}
+
+.vision__inner {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.vision__main {
+  display: grid;
+  gap: var(--space-5);
+  max-width: 48rem;
+}
+
+.vision__label {
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--teal-300);
+}
+
+/* Les trois points de la signature, en clair sur fond sombre */
+.vision__label.gather-title::before {
+  background: var(--olive-300);
+  box-shadow: -14px 0 0 var(--teal-300), 14px 0 0 var(--teal-300);
+}
+
+.js .vision__label.gather-title:not(.is-in)::before {
+  box-shadow: -48px 0 0 var(--teal-300), 48px 0 0 var(--teal-300);
+}
+
+.vision__quote p {
+  max-width: none;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 1.05rem + 2.1vw, 2.6rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--color-on-dark);
+  text-wrap: balance;
+}
+
+.vision__values {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+
+.vision__values-title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--teal-300);
+}
+
+.values {
+  display: grid;
+  gap: 0;
+}
+
+.values li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+  border-top: 1px solid rgb(255 255 255 / 0.12);
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: var(--leading-snug);
+  color: var(--color-on-dark);
+}
+
+.values li:last-child {
+  border-bottom: 1px solid rgb(255 255 255 / 0.12);
+}
+
+.values li::before {
+  content: "";
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--olive-300);
+  transform: translateY(-0.1em);
+}
+
+@media (min-width: 64rem) {
+  .vision__inner {
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-9);
+    align-items: center;
+  }
+}
+
+/* ---- Appel : la place vide ---- */
+.engage {
+  background: var(--teal-50);
+}
+
+.engage__inner {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.engage__head {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+}
+
+.engage__head h2 {
+  color: var(--teal-900);
+}
+
+.engage__head > p {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--teal-800);
+}
+
+.engage__figure {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.engage__mark {
+  width: 5.5rem;
+  height: auto;
+  overflow: visible;
+}
+
+.engage__mark .dot--teal { fill: var(--teal-600); }
+.engage__mark .dot--olive { fill: var(--olive-600); }
+
+/* À l'arrivée : la flèche du début se reforme (en plus court)… */
+.js .engage__mark .dot {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.js .engage:not(.is-in) .engage__mark .dot,
+.js .engage:not(.is-in) .dot--empty,
+.js .engage:not(.is-in) .engage__caption {
+  opacity: 0;
+}
+
+.js .engage.is-in .engage__mark .dot {
+  animation: gather 1000ms var(--ease-out) var(--delay, 0ms) both;
+}
+
+/* … puis la place vide apparaît et invite, deux fois, avant de patienter */
+.js .engage.is-in .dot--empty {
+  animation:
+    empty-in 400ms var(--ease-out) 950ms backwards,
+    invite 1300ms var(--ease-in-out) 1450ms 2;
+}
+
+.js .engage.is-in .engage__caption {
+  animation: caption-in var(--duration-slow) var(--ease-out) 1100ms both;
+}
+
+@keyframes empty-in {
+  from { opacity: 0; transform: scale(0.4); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes invite {
+  0%, 100% { transform: scale(1); }
+  45% { transform: scale(1.4); stroke-width: 2.4; }
+}
+
+/* Le point qui manque : un anneau en attente */
+.engage__mark .dot--empty {
+  fill: var(--olive-600);
+  fill-opacity: 0;
+  stroke: var(--olive-600);
+  stroke-width: 1.8;
+  stroke-dasharray: 3 2.2;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: fill-opacity var(--duration-base) var(--ease-out),
+              stroke-dasharray var(--duration-base) var(--ease-out),
+              transform 400ms var(--ease-out);
+}
+
+/* Survol ou focus sur « Adhérer » / « Faire un don » : la place est prise */
+.engage:has([data-join]:hover, [data-join]:focus-visible, [data-join]:active) .dot--empty {
+  fill-opacity: 1;
+  stroke-dasharray: none;
+  transform: scale(1.1);
+}
+
+.engage__caption {
+  max-width: 14ch;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--olive-700);
+}
+
+.engage__paths {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.engage-path {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--space-3);
+  justify-items: start;
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+}
+
+.engage-path p {
+  color: var(--color-text-muted);
+}
+
+.engage-path .button {
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 48rem) {
+  .engage__paths {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .engage__mark {
+    width: 9rem;
+  }
+
+  .engage__caption {
+    font-size: var(--text-base);
+  }
+}
+
+@media (min-width: 64rem) {
+  .engage__inner {
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+  }
+}
+
+/* ---- Projets : un projet en grand + l'index des autres ---- */
+.projects__intro {
+  max-width: 34ch;
+}
+
+.projects__layout {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.projects__index {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+}
+
+.projects__index-title {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
+
+.projects__all {
+  justify-self: start;
+  margin-top: var(--space-3);
+}
+
+@media (min-width: 64rem) {
+  .projects__layout {
+    grid-template-columns: 1.25fr 1fr;
+    gap: var(--space-8);
+    align-items: stretch;
+  }
+
+  .projects__feature,
+  .projects__feature .pfeature {
+    height: 100%;
+  }
+
+  /* Les lignes se partagent la hauteur ; le bouton s'aligne en bas */
+  .projects__index {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects__index .pindex {
+    flex: 1;
+    display: grid;
+    grid-auto-rows: 1fr;
+  }
+
+  .projects__index .pindex__link {
+    height: 100%;
+  }
+
+  .projects__all {
+    align-self: flex-start;
+    margin-top: var(--space-5);
+  }
+}
+
+/* ==========================================================================
+   Mobile : équilibre gauche / droite
+   Le texte courant reste aligné à gauche (lisibilité) ; les éléments visuels
+   se centrent et les boutons d'action prennent toute la largeur.
+   ========================================================================== */
+@media (max-width: 47.99rem) {
+  /* Hero : les deux boutons sur une seule ligne, plus compacts */
+  .hero__actions {
+    flex-wrap: nowrap;
+    gap: var(--space-2);
+  }
+
+  .hero__actions .button {
+    flex: 1 1 auto;
+    min-height: 48px;
+    padding-inline: var(--space-3);
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+
+  /* Preuve : la grille de points et sa légende au centre */
+  .proof__key,
+  .proof .waffle__caption {
+    text-align: center;
+  }
+
+  .proof .waffle__grid svg {
+    max-width: min(100%, 20rem);
+    margin-inline: auto;
+  }
+
+  .proof .waffle__legend {
+    justify-content: center;
+  }
+
+  .proof .waffle__source {
+    margin-inline: auto;
+  }
+
+  /* Projets : bouton pleine largeur */
+  .projects__all {
+    justify-self: stretch;
+  }
+
+  /* Appel final : la flèche et sa phrase au centre, boutons pleine largeur */
+  .engage__head {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .engage__figure {
+    justify-content: center;
+  }
+
+  .engage__caption {
+    text-align: left;
+  }
+
+  .engage-path .button {
+    justify-self: stretch;
+  }
+
+  /* Les trois points suivent la phrase centrée */
+  .proof__key.gather-title::before {
+    margin-inline: auto;
+  }
+}
+
+/* Très petits écrans (< 340 px) : les boutons du hero repassent l'un sous l'autre */
+@media (max-width: 21.2rem) {
+  .hero__actions {
+    flex-wrap: wrap;
+  }
+}
+
+/* ---- Citation de l'ONG, sous les projets ---- */
+.home-quote:empty {
+  display: none;
+}
+
+.home-quote {
+  margin-top: var(--space-8);
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--line);
+}
+
+.home-quote blockquote p {
+  max-width: 26ch;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(1.6rem, 1.15rem + 1.8vw, 2.4rem);
+  line-height: 1.25;
+  color: var(--teal-900);
+  text-wrap: balance;
+}
+
+.home-quote figcaption {
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---- Actualités : une à la une, les autres en lignes (mise en page de journal) ---- */
+.news-layout {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.news__dateline {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--olive-700);
+}
+
+.news__source {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.news-lead {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.news-lead__media img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.news-lead__body {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.news-lead__title {
+  font-size: var(--text-2xl);
+  line-height: 1.15;
+}
+
+.news-lead__title a,
+.news-row__title a {
+  color: var(--teal-900);
+  text-decoration: none;
+}
+
+.news-lead__title a:hover,
+.news-row__title a:hover {
+  color: var(--teal-600);
+  text-decoration: underline;
+}
+
+.news-lead__excerpt {
+  color: var(--color-text-muted);
+}
+
+.news-rows {
+  display: grid;
+  align-content: start;
+  border-top: 2px solid var(--teal-900);
+}
+
+.news-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 6.5rem;
+  gap: var(--space-4);
+  align-items: start;
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--line);
+}
+
+.news-row__body {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.news-row__title {
+  font-size: var(--text-lg);
+  line-height: 1.25;
+}
+
+.news-row__media img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+@media (min-width: 64rem) {
+  .news-layout {
+    grid-template-columns: 1.35fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+}
+
+.js .news-layout:not(.is-in) > * {
+  opacity: 0;
+}
+
+.js .news-layout.is-in > * {
+  animation: rise 650ms var(--ease-out) both;
+}
+
+.js .news-layout.is-in > :nth-child(2) {
+  animation-delay: 140ms;
+}
+
+
+/* ==========================================================================
+   Hero : la photo se compose point par point (le motif du logo)
+   Un masque de points grandit de 0 à 11 px (tuile de 14 px) : les visages
+   apparaissent à travers les points, par-dessus un aperçu flou très léger.
+   Une seule fois. Sans JS ou en mouvement réduit : photo affichée directement.
+   ========================================================================== */
+@property --dot {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 11px;
+}
+
+.hero__media {
+  background: var(--lqip-43) center / cover no-repeat, var(--teal-900);
+}
+
+@media (min-width: 48rem) {
+  .hero__media {
+    background: var(--lqip-wide) center / cover no-repeat, var(--teal-900);
+  }
+}
+
+.js .hero__photo {
+  -webkit-mask-image: radial-gradient(circle, #000 var(--dot, 11px), transparent calc(var(--dot, 11px) + 0.5px));
+  mask-image: radial-gradient(circle, #000 var(--dot, 11px), transparent calc(var(--dot, 11px) + 0.5px));
+  -webkit-mask-size: 14px 14px;
+  mask-size: 14px 14px;
+  animation:
+    hero-settle 1800ms var(--ease-out) both,
+    hero-compose 1500ms cubic-bezier(0.5, 0, 0.2, 1) 120ms both;
+}
+
+@keyframes hero-compose {
+  from { --dot: 0px; }
+  to { --dot: 11px; }
+}
+
+/* Le point qui vole du bouton vers la place vide */
+.flying-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.engage__mark .dot--empty.is-filled {
+  fill-opacity: 1;
+  stroke-dasharray: none;
+}

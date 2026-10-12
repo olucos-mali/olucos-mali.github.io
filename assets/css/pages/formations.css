@@ -1,0 +1,324 @@
+/* ==========================================================================
+   Page « Formations » : formations en cours, autres actions, sessions à venir.
+   Les sessions datées s'ajouteront ici quand l'ONG les aura confirmées.
+   ========================================================================== */
+.formations__title {
+  font-size: var(--text-xl);
+  color: var(--teal-900);
+}
+
+.formations__intro {
+  margin: var(--space-2) 0 var(--space-5);
+  max-width: 42rem;
+  color: var(--color-text-muted);
+}
+
+.formations-now {
+  background: var(--paper-warm);
+}
+
+.formations__list,
+.formations__projects {
+  display: grid;
+  align-items: start;
+  gap: var(--space-4);
+}
+
+.formations__list {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 36rem) {
+  .formations__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 60rem) {
+  .formations__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.formation {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+}
+
+/* Cartes de formation : la photo déborde sur les bords de la carte */
+.formations__list .formation {
+  overflow: hidden;
+  padding: 0 0 var(--space-5);
+  transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out);
+}
+
+.formations__list .formation > :not(.formation__photo) {
+  margin-inline: var(--space-5);
+}
+
+.formations__list .formation:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 30px -22px rgb(0 51 51 / 0.5);
+}
+
+.formation__photo {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin-bottom: var(--space-2);
+  background: var(--teal-50);
+}
+
+.formation__photo picture,
+.formation__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.formation__photo img {
+  object-fit: cover;
+  object-position: center 35%;
+  transition: transform 600ms var(--ease-out);
+}
+
+.formation:hover .formation__photo img {
+  transform: scale(1.05);
+}
+
+/* Sans photo : le point de la marque, grand, sur fond sarcelle clair */
+.formation__photo--empty {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle, var(--teal-100) 0 3px, transparent 3.5px) 0 0 / 1.25rem 1.25rem,
+    var(--teal-50);
+  color: var(--teal-600);
+}
+
+.formation__photo--empty .icon {
+  width: 3rem;
+  height: 3rem;
+}
+
+.js .formations__list[data-ready]:not(.is-in) > .formation {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.js .formations__list.is-in > .formation {
+  animation: formation-in 600ms var(--ease-out) both;
+}
+
+.js .formations__list.is-in > :nth-child(3n + 2) { animation-delay: 110ms; }
+.js .formations__list.is-in > :nth-child(3n + 3) { animation-delay: 220ms; }
+
+@keyframes formation-in {
+  from { opacity: 0; transform: translateY(14px); }
+}
+
+/* ---- En-tête : le texte et la photo du projet côte à côte ---- */
+.formations-hero {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.formations-hero__photo {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: rgb(255 255 255 / 0.08);
+  box-shadow: 0 24px 40px -28px rgb(0 0 0 / 0.6);
+}
+
+.formations-hero__photo[hidden] {
+  display: none;
+}
+
+.formations-hero__photo picture,
+.formations-hero__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 56rem) {
+  .formations-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 34rem);
+    gap: var(--space-7);
+  }
+}
+
+/* ---- Bande de photos « sur le terrain » ---- */
+.formations-strip {
+  padding-block: var(--space-6);
+}
+
+.formations-strip__list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.formations-strip figure {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.formations-strip picture,
+.formations-strip img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.formations-strip img {
+  transition: transform 700ms var(--ease-out);
+}
+
+.formations-strip figure:hover img {
+  transform: scale(1.04);
+}
+
+.js .formations-strip:not(.is-in) li {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.js .formations-strip.is-in li {
+  animation: formation-in 700ms var(--ease-out) both;
+}
+
+.js .formations-strip.is-in li:nth-child(2) { animation-delay: 120ms; }
+.js .formations-strip.is-in li:nth-child(3) { animation-delay: 240ms; }
+
+@media (min-width: 40rem) {
+  .formations-strip__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .formations__list .formation,
+  .formation__photo img,
+  .formations-strip img {
+    transition: none;
+  }
+
+  .js .formations__list.is-in > .formation,
+  .js .formations-strip.is-in li {
+    animation: none;
+  }
+}
+
+.formation__title {
+  font-size: var(--text-lg);
+  color: var(--teal-900);
+}
+
+.formation__title a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: inherit;
+}
+
+.formation__meta {
+  font-size: var(--text-sm);
+  color: var(--olive-700);
+  font-weight: 600;
+}
+
+.formations__more {
+  margin-top: var(--space-5);
+}
+
+/* ---- Sessions à venir : état vide soigné ---- */
+.formations-soon {
+  background: var(--paper-warm);
+}
+
+.formations-soon__box {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-3);
+  max-width: 44rem;
+  margin-inline: auto;
+  padding: var(--space-6);
+  border: 2px dashed var(--line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+}
+
+.formations-soon__dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.formations-soon__dots i {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--teal-600);
+}
+
+.formations-soon__dots i:nth-child(2) {
+  background: var(--olive-600);
+}
+
+.formations-soon__dots i:last-child {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px var(--teal-600);
+}
+
+.formations-soon__title {
+  font-size: var(--text-xl);
+  color: var(--teal-900);
+}
+
+.formations-soon__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+@media (max-width: 39.99rem) {
+  .formations-soon__cta .button {
+    width: 100%;
+  }
+}
+
+@media (min-width: 48rem) {
+  .formations__projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Projets avec photo : même présentation que les cartes de formation */
+.formation--photo {
+  overflow: hidden;
+  padding: 0 0 var(--space-5);
+}
+
+.formation--photo > :not(.formation__photo) {
+  margin-inline: var(--space-5);
+}
+
+.formation--photo .formation__photo {
+  aspect-ratio: 16 / 9;
+}
+
+.formation--photo .formation__photo img {
+  object-position: center 30%;
+}
+
+.formation--photo:hover .formation__photo img {
+  transform: scale(1.05);
+}

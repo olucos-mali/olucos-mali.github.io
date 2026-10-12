@@ -1,0 +1,84 @@
+/* ==========================================================================
+   Page 404 : un point perdu rejoint le groupe (un point = une personne).
+   ========================================================================== */
+.lost {
+  display: grid;
+  min-height: 60vh;
+  align-items: center;
+  padding-block: var(--space-8);
+  background: var(--paper-warm);
+}
+
+.lost__inner {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-3);
+  max-width: 44rem;
+}
+
+.lost__dots {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.lost__dots i {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--teal-600);
+}
+
+.lost__dots i:nth-child(even) {
+  background: var(--olive-600);
+}
+
+/* Le point perdu : il arrive de loin et prend sa place au bout de la rangée */
+.lost__dots .lost__dot {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px var(--teal-600);
+  animation: lost-join 2200ms var(--ease-out) 400ms both;
+}
+
+@keyframes lost-join {
+  from { transform: translate(8rem, -2.5rem) scale(0.6); opacity: 0; }
+  60% { opacity: 1; }
+  to { transform: none; }
+}
+
+.lost__code {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--olive-700);
+}
+
+.lost__title {
+  font-size: var(--text-2xl);
+  color: var(--teal-900);
+}
+
+.lost__text {
+  max-width: 34rem;
+  color: var(--color-text-muted);
+}
+
+.lost__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+@media (max-width: 39.99rem) {
+  .lost__actions .button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lost__dots .lost__dot {
+    animation: none;
+  }
+}

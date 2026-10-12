@@ -1,0 +1,1966 @@
+/* ==========================================================================
+   Composants réutilisables
+   ========================================================================== */
+
+/* ---- Boutons ---- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-5);
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button--lg {
+  min-height: 52px;
+  padding-inline: var(--space-6);
+  font-size: var(--text-base);
+}
+
+.button--primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.button--primary:hover {
+  background: var(--color-primary-hover);
+  color: var(--color-on-primary);
+}
+
+.button--accent {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.button--accent:hover {
+  background: var(--color-accent-hover);
+  color: var(--color-on-accent);
+}
+
+/* Sur fond sombre (hero) */
+.button--light {
+  background: var(--paper);
+  color: var(--teal-900);
+}
+
+.button--light:hover {
+  background: var(--teal-50);
+  color: var(--teal-900);
+}
+
+.button--ghost-light {
+  background: transparent;
+  border-color: rgb(255 255 255 / 0.85);
+  color: var(--paper);
+}
+
+.button--ghost-light:hover {
+  background: rgb(255 255 255 / 0.12);
+  color: var(--paper);
+}
+
+.button--outline {
+  background: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.button--outline:hover {
+  background: var(--teal-50);
+  color: var(--teal-800);
+}
+
+/* ---- Lien mis en avant ---- */
+.link-strong {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-link);
+  text-decoration: underline;
+  text-decoration-color: var(--teal-300);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
+}
+
+.link-strong:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ---- États de chargement, erreur, vide ---- */
+[data-state="loading"] {
+  color: var(--color-text-muted);
+}
+
+.state-message {
+  padding: var(--space-5);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+}
+
+.state-message a {
+  font-weight: 600;
+}
+
+/* ---- Pastille de domaine (motif des points) ---- */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: var(--teal-50);
+  color: var(--teal-800);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.tag::before {
+  content: "";
+  width: 0.45em;
+  height: 0.45em;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.tag--status {
+  background: var(--olive-50);
+  color: var(--olive-700);
+}
+
+/* ==========================================================================
+   Liste des domaines d'intervention
+   ========================================================================== */
+.domain-list {
+  display: grid;
+  gap: 0 var(--space-7);
+}
+
+.domain-list > li {
+  border-top: 1px solid var(--line);
+}
+
+.domain-item__summary {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 56px;
+  padding-block: var(--space-3);
+  cursor: pointer;
+  list-style: none;
+}
+
+.domain-item__summary::-webkit-details-marker {
+  display: none;
+}
+
+.domain-item__icon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--teal-50);
+  color: var(--teal-600);
+}
+
+.domain-item__icon .icon {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.domain-item__title {
+  font-size: var(--text-base);
+  line-height: var(--leading-snug);
+}
+
+.domain-item__chevron {
+  color: var(--teal-600);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.domain-item[open] .domain-item__chevron {
+  transform: rotate(180deg);
+}
+
+.domain-item__text {
+  padding: 0 0 var(--space-4) calc(2.75rem + var(--space-4));
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 48rem) {
+  .domain-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .domain-item__summary {
+    cursor: default;
+    align-items: start;
+    padding-top: var(--space-5);
+  }
+
+  .domain-item__title {
+    font-size: var(--text-lg);
+    padding-top: var(--space-2);
+  }
+
+  .domain-item__chevron {
+    display: none;
+  }
+
+  .domain-item__text {
+    margin-top: calc(-1 * var(--space-2));
+    padding-bottom: var(--space-5);
+  }
+}
+
+/* ==========================================================================
+   Cartes projet
+   ========================================================================== */
+.project-grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* Mobile : les projets défilent à l'horizontale, la carte suivante dépasse */
+@media (max-width: 47.99rem) {
+  .project-grid,
+  .news-grid {
+    grid-auto-flow: column;
+    grid-auto-columns: 86%;
+    gap: var(--space-3);
+    margin-inline: calc(-1 * var(--gutter));
+    padding: var(--space-1) var(--gutter) var(--space-4);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: thin;
+  }
+
+  .project-grid > *,
+  .news-grid > * {
+    scroll-snap-align: start;
+  }
+
+  .project-card {
+    padding: var(--space-5);
+  }
+
+  .project-card--feature .project-card__title {
+    font-size: var(--text-xl);
+  }
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  transition: border-color var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out);
+}
+
+.project-card:hover {
+  border-color: var(--teal-300);
+  box-shadow: var(--shadow-raised);
+}
+
+.project-card__title {
+  font-size: var(--text-xl);
+}
+
+.project-card__media img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+/* La carte vedette avec photo n'a plus besoin du filigrane */
+.project-grid .project-card--feature.project-card--media::after {
+  display: none;
+}
+
+/* Lien étiré : toute la carte est cliquable, le titre reste le lien */
+.project-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-card__title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.project-card__title a:focus-visible {
+  outline: none;
+}
+
+.project-card:has(a:focus-visible) {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.project-card__summary {
+  color: var(--color-text-muted);
+}
+
+.project-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* Carte vedette : projet en cours, fond sarcelle foncé */
+.project-card--feature {
+  background: var(--teal-900);
+  border-color: var(--teal-900);
+  color: var(--color-on-dark);
+}
+
+.project-card--feature:hover {
+  border-color: var(--teal-700);
+}
+
+.project-card--feature .project-card__title {
+  font-size: var(--text-2xl);
+}
+
+.project-card--feature .project-card__summary,
+.project-card--feature .project-card__meta {
+  color: var(--color-on-dark-muted);
+}
+
+.project-card--feature .project-card__meta {
+  border-top-color: rgb(255 255 255 / 0.16);
+}
+
+.project-card--feature .tag {
+  background: rgb(255 255 255 / 0.1);
+  color: var(--paper);
+}
+
+.project-card--feature:has(a:focus-visible) {
+  outline-color: var(--teal-600);
+}
+
+@media (min-width: 48rem) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-grid .project-card--feature {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 64rem) {
+  .project-grid {
+    grid-template-columns: 1.25fr 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .project-grid .project-card--feature {
+    grid-column: 1;
+    grid-row: span 2;
+    padding: var(--space-7);
+    overflow: hidden;
+  }
+
+  /* Filigrane : le symbole du logo, discret, dans l'espace libre de la carte vedette */
+  .project-grid .project-card--feature::after {
+    content: "";
+    position: absolute;
+    right: -2.5rem;
+    bottom: 3.5rem;
+    width: 15rem;
+    aspect-ratio: 1;
+    background: url("/assets/images/logo/olucos-symbole-blanc.svg") center / contain no-repeat;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+}
+
+/* ==========================================================================
+   Partenaires (logo quand le fichier est disponible, sinon un point ; le nom reste toujours en texte)
+   ========================================================================== */
+.partner-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--space-4);
+}
+
+.partner-item {
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+
+.partner-item__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-lg);
+  color: var(--teal-900);
+  line-height: var(--leading-snug);
+}
+
+.partner-item__detail {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.partner-item__logo {
+  display: flex;
+  align-items: center;
+  height: 3.25rem;
+  margin-bottom: var(--space-1);
+}
+
+.partner-item__logo img {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Sans logo : le point de la marque tient la place, les noms restent alignés */
+.partner-item__dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--teal-300);
+}
+
+@media (max-width: 39.99rem) {
+  .partner-item { padding-block: var(--space-3); }
+  .partner-item__logo { height: 2.5rem; }
+  .partner-item__name { font-size: var(--text-base); }
+  .partner-item__detail { font-size: 0.8125rem; }
+}
+
+@media (min-width: 64rem) {
+  .partner-list { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* ==========================================================================
+   Grille de points (waffle) — un point = une personne
+   Distinction par la FORME (plein / anneau) et pas seulement la couleur.
+   ========================================================================== */
+.waffle {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.waffle__grid svg {
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+}
+
+.waffle__dot {
+  fill: var(--teal-600);
+  stroke: var(--teal-600);
+  stroke-width: 1.6;
+  fill-opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.waffle__dot.is-target-filled {
+  fill-opacity: 1;
+}
+
+/* Métamorphose : avant l'entrée à l'écran, les points forment la flèche du logo */
+.js .waffle__grid circle {
+  transition:
+    transform 900ms var(--ease-out) var(--d, 0ms),
+    opacity 450ms var(--ease-out) var(--d, 0ms),
+    fill-opacity 380ms var(--ease-out) var(--fd, 0ms),
+    fill 600ms var(--ease-out) var(--d, 0ms),
+    stroke 600ms var(--ease-out) var(--d, 0ms);
+}
+
+.js .waffle__grid svg:not(.is-grid) circle {
+  transform: var(--from);
+  fill-opacity: 0;
+}
+
+.js .waffle__grid svg:not(.is-grid) .is-arrow {
+  fill-opacity: 1;
+}
+
+.js .waffle__grid svg:not(.is-grid) .is-olive {
+  fill: var(--olive-600);
+  stroke: var(--olive-600);
+}
+
+.js .waffle__grid svg:not(.is-grid) .is-new {
+  opacity: 0;
+}
+
+.waffle__caption {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.waffle__figure {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  color: var(--teal-900);
+}
+
+.waffle__figure strong {
+  font-weight: 700;
+}
+
+.waffle__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  font-weight: 600;
+}
+
+.waffle__legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.legend-dot {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+}
+
+.legend-dot--filled {
+  background: var(--teal-600);
+}
+
+.legend-dot--ring {
+  border: 2px solid var(--teal-600);
+}
+
+.waffle__source {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 48rem) {
+  .waffle {
+    grid-template-columns: minmax(16rem, 22rem) 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* ==========================================================================
+   Carte du Mali en points + liste des lieux
+   ========================================================================== */
+.mali-map {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.mali-map__canvas {
+  position: relative;
+}
+
+.mali-map__canvas img {
+  width: 100%;
+  height: auto;
+}
+
+.mali-map__caption {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+.map-marker {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.map-marker__dot {
+  position: relative;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: var(--olive-600);
+  box-shadow: 0 0 0 3px var(--color-bg-alt);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.map-marker--siege .map-marker__dot {
+  background: var(--teal-600);
+}
+
+/* Halo : un seul anneau, une seule fois à l'apparition */
+.map-marker__dot::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  color: var(--olive-600);
+  opacity: 0;
+}
+
+.map-marker--siege .map-marker__dot::after {
+  color: var(--teal-600);
+}
+
+.map-marker[data-active] .map-marker__dot {
+  transform: scale(1.35);
+}
+
+.map-marker[data-active] .map-marker__dot::after {
+  opacity: 0.5;
+}
+
+.map-marker__label {
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-sm);
+  background: rgb(250 250 247 / 0.92);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: var(--teal-900);
+  white-space: nowrap;
+}
+
+/* Le point reste sur le lieu ; seule l'étiquette change de côté */
+.map-marker--label-right { transform: translate(-0.45rem, -50%); }
+.map-marker--label-left { flex-direction: row-reverse; transform: translate(calc(-100% + 0.45rem), -50%); }
+.map-marker--label-top { flex-direction: column-reverse; gap: var(--space-1); transform: translate(-50%, calc(-100% + 0.45rem)); }
+
+.place-list {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.place {
+  padding: var(--space-4) var(--space-5);
+  border-left: 3px solid var(--olive-300);
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+
+.place--siege {
+  border-left-color: var(--teal-300);
+}
+
+.place:hover,
+.place:focus-within {
+  border-left-color: var(--olive-600);
+}
+
+.place--siege:hover,
+.place--siege:focus-within {
+  border-left-color: var(--teal-600);
+}
+
+.place__name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+}
+
+.place__dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--olive-600);
+}
+
+.place--siege .place__dot {
+  background: var(--teal-600);
+}
+
+.place__items {
+  display: grid;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+}
+
+.place__link {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Barre d'action mobile
+   ========================================================================== */
+.action-bar {
+  position: fixed;
+  left: var(--space-3);
+  right: var(--space-3);
+  bottom: calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
+  z-index: 40;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: var(--space-1);
+  padding: 0.375rem;
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  box-shadow: 0 10px 30px -10px rgb(0 51 51 / 0.45), 0 0 0 1px var(--line);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(120%);
+  transition: transform var(--duration-base) var(--ease-out),
+              opacity var(--duration-base) var(--ease-out),
+              visibility 0s linear var(--duration-base);
+}
+
+.action-bar[data-visible] {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition: transform var(--duration-base) var(--ease-out),
+              opacity var(--duration-base) var(--ease-out);
+}
+
+.action-bar__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding-inline: var(--space-3);
+  white-space: nowrap;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--teal-800);
+  text-decoration: none;
+  background: var(--teal-50);
+}
+
+.action-bar__item--primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.action-bar__item:hover {
+  color: inherit;
+}
+
+.action-bar__item--primary:hover {
+  color: var(--color-on-primary);
+  background: var(--color-primary-hover);
+}
+
+body.has-action-bar {
+  padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 64rem) {
+  .action-bar {
+    display: none;
+  }
+
+  body.has-action-bar {
+    padding-bottom: 0;
+  }
+}
+
+/* ==========================================================================
+   Mouvement — une seule animation par section, à l'arrivée à l'écran.
+   État « avant » toujours scopé sous .js : sans JavaScript, tout est visible.
+   Mouvement réduit : base.css ramène les durées à ~0, reveal.js révèle tout.
+   ========================================================================== */
+
+/* ---- Geste signature : trois points qui se rassemblent avant le titre ---- */
+.gather-title::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 0 0 var(--space-4) 14px;
+  border-radius: 50%;
+  background: var(--olive-600);
+  box-shadow: -14px 0 0 var(--teal-600), 14px 0 0 var(--teal-600);
+}
+
+.js .gather-title::before {
+  transition: box-shadow 800ms var(--ease-out), opacity 400ms var(--ease-out);
+}
+
+.js .gather-title:not(.is-in)::before {
+  opacity: 0;
+  box-shadow: -48px 0 0 var(--teal-600), 48px 0 0 var(--teal-600);
+}
+
+/* ---- Carte : les lieux s'allument un à un, avec un halo unique ---- */
+.js [data-map] .map-marker {
+  transition: opacity 450ms var(--ease-out) var(--mdelay, 0ms);
+}
+
+.js [data-map] .map-marker__dot {
+  transition: transform 550ms var(--ease-out) var(--mdelay, 0ms);
+}
+
+.js [data-map]:not(.is-in) .map-marker {
+  opacity: 0;
+}
+
+.js [data-map]:not(.is-in) .map-marker__dot {
+  transform: scale(0.3);
+}
+
+/* Une fois allumés, les lieux pulsent sans arrêt (halo doux, décalé d'un lieu à l'autre).
+   Pause quand la carte sort de l'écran ; arrêt complet en mouvement réduit (base.css). */
+.js [data-map].is-in .map-marker__dot::after {
+  animation: halo 2400ms var(--ease-out) calc(var(--mdelay, 0ms) + 250ms) infinite backwards;
+}
+
+.js [data-map][data-offscreen] .map-marker__dot::after {
+  animation-play-state: paused;
+}
+
+/* Une fois apparu, le survol d'un lieu réagit sans attendre */
+.js [data-map].is-in .map-marker[data-active] .map-marker__dot {
+  transition-delay: 0ms;
+}
+
+@keyframes halo {
+  0% { opacity: 0.75; transform: scale(0.6); }
+  70%, 100% { opacity: 0; transform: scale(2.2); }
+}
+
+/* ---- Projets : les cartes se mettent en place, l'une après l'autre ---- */
+.js :is(.project-grid, .news-grid):not(.is-in) > * {
+  opacity: 0;
+}
+
+.js :is(.project-grid, .news-grid).is-in > * {
+  animation: rise 650ms var(--ease-out) both;
+}
+
+.js :is(.project-grid, .news-grid).is-in > :nth-child(2) { animation-delay: 110ms; }
+.js :is(.project-grid, .news-grid).is-in > :nth-child(3) { animation-delay: 220ms; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---- Domaines : l'icône répond au geste (survol sur bureau, ouverture sur mobile) ---- */
+.domain-item__icon {
+  transition: background-color var(--duration-base) var(--ease-out),
+              color var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out);
+}
+
+@media (hover: hover) and (min-width: 48rem) {
+  .domain-list > li:hover .domain-item__icon {
+    background: var(--teal-600);
+    color: var(--paper);
+    transform: scale(1.06);
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .domain-item[open] .domain-item__icon {
+    background: var(--teal-600);
+    color: var(--paper);
+  }
+}
+
+/* ==========================================================================
+   Actualités
+   ========================================================================== */
+.news-grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.news-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  transition: border-color var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out);
+}
+
+.news-card:hover {
+  border-color: var(--teal-300);
+  box-shadow: var(--shadow-raised);
+}
+
+.news-card__media img,
+.news-card__media--pattern {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+/* Sans photo : le motif de points de la marque, jamais une image inventée */
+.news-card__media--pattern {
+  background:
+    radial-gradient(var(--teal-300) 2.4px, transparent 2.8px) 0 0 / 18px 18px,
+    var(--teal-50);
+}
+
+.news-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+  padding: var(--space-5);
+}
+
+.news-card__date {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--olive-700);
+}
+
+.news-card__title {
+  font-size: var(--text-lg);
+}
+
+.news-card__title a {
+  color: var(--teal-900);
+  text-decoration: none;
+}
+
+.news-card__title a:hover {
+  text-decoration: underline;
+}
+
+.news-card__excerpt {
+  color: var(--color-text-muted);
+}
+
+.news-card__source {
+  margin-top: auto;
+  padding-top: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+@media (min-width: 48rem) {
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .news-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Projet vedette — la photo en grand, le chiffre clé, la frise des semaines
+   ========================================================================== */
+.pfeature {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--teal-900);
+  color: var(--color-on-dark);
+}
+
+.pfeature__media {
+  position: relative;
+}
+
+.pfeature__picture img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+/* La photo se fond dans le bloc sarcelle */
+.pfeature__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(0 51 51 / 0) 45%, rgb(0 51 51 / 0.75) 80%, var(--teal-900) 100%);
+}
+
+.pfeature__body {
+  position: relative;
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+  margin-top: -3.5rem;
+  padding: 0 var(--space-5) var(--space-6);
+}
+
+.pfeature__status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.2rem 0.75rem 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  /* fond opaque : le contraste ne dépend pas de la photo dessous */
+  background: rgb(0 51 51 / 0.82);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.18);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+/* Indicateur « en cours » : une pulsation lente et discrète */
+.pfeature__live {
+  position: relative;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--olive-300);
+}
+
+.pfeature__live::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--olive-300);
+  animation: live 2.4s var(--ease-out) infinite;
+}
+
+@keyframes live {
+  from { opacity: 0.7; transform: scale(1); }
+  to { opacity: 0; transform: scale(2.6); }
+}
+
+.pfeature__title {
+  font-size: var(--text-2xl);
+  line-height: 1.1;
+}
+
+.pfeature__title a {
+  color: var(--color-on-dark);
+  text-decoration: none;
+}
+
+.pfeature__title a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.pfeature__figure {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  max-width: none;
+  margin-top: var(--space-1);
+}
+
+.pfeature__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3.25rem, 2.4rem + 4vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--olive-300);
+}
+
+.pfeature__label {
+  max-width: 22ch;
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: var(--leading-snug);
+  color: var(--color-on-dark);
+}
+
+.pfeature__summary,
+.pfeature__partners {
+  color: var(--color-on-dark-muted);
+}
+
+/* Frise : un point par semaine du calendrier annoncé */
+.ptimeline {
+  display: grid;
+  gap: var(--space-2);
+  width: 100%;
+  margin-top: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgb(255 255 255 / 0.14);
+}
+
+.ptimeline__dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.ptimeline__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgb(255 255 255 / 0.32);
+}
+
+.ptimeline__dot.is-done {
+  background: var(--olive-300);
+  border-color: var(--olive-300);
+}
+
+.ptimeline__dot.is-now {
+  box-shadow: 0 0 0 3px rgb(194 194 173 / 0.35);
+}
+
+/* Les semaines écoulées se remplissent une à une, à l'arrivée à l'écran */
+.js .ptimeline__dot.is-done {
+  transition: background-color 300ms var(--ease-out) calc(var(--i) * 60ms),
+              border-color 300ms var(--ease-out) calc(var(--i) * 60ms);
+}
+
+.js .ptimeline:not(.is-in) .ptimeline__dot.is-done {
+  background: transparent;
+  border-color: rgb(255 255 255 / 0.32);
+}
+
+.ptimeline__label {
+  font-size: var(--text-sm);
+  color: var(--color-on-dark-muted);
+}
+
+.pfeature__more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  margin-top: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-on-dark);
+  text-decoration: none;
+}
+
+.pfeature__more .icon {
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.pfeature__more:hover {
+  color: var(--color-on-dark);
+  text-decoration: underline;
+}
+
+.pfeature__more:hover .icon {
+  transform: translateX(4px);
+}
+
+@media (min-width: 48rem) {
+  .pfeature__body {
+    margin-top: -4.5rem;
+    padding: 0 var(--space-7) var(--space-6);
+  }
+
+  .pfeature__title {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* Côte à côte avec l'index : photo plus panoramique pour équilibrer les hauteurs */
+@media (min-width: 64rem) {
+  .pfeature__picture img {
+    aspect-ratio: 2 / 1;
+  }
+
+  .pfeature__value {
+    font-size: clamp(3.25rem, 2.4rem + 2.6vw, 4.25rem);
+  }
+}
+
+/* ==========================================================================
+   Index des projets — une ligne par projet, toute la ligne est un lien
+   ========================================================================== */
+.pindex {
+  border-top: 1px solid var(--line);
+}
+
+.pindex__item {
+  border-bottom: 1px solid var(--line);
+}
+
+.pindex__link {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 72px;
+  padding: var(--space-3) var(--space-2);
+  border-radius: var(--radius-md);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color var(--duration-base) var(--ease-out);
+}
+
+.pindex__link:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.pindex__link:hover .pindex__title {
+  color: var(--teal-600);
+}
+
+.pindex__icon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--teal-50);
+  color: var(--teal-600);
+  transition: background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
+}
+
+.pindex__link:hover .pindex__icon {
+  background: var(--teal-600);
+  color: var(--paper);
+}
+
+.pindex__text {
+  display: grid;
+  gap: 2px;
+}
+
+.pindex__arrow {
+  color: var(--teal-600);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.pindex__link:hover .pindex__arrow {
+  transform: translateX(4px);
+}
+
+.pindex__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+  color: var(--teal-900);
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+.pindex__meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.js .pindex:not(.is-in) > li {
+  opacity: 0;
+}
+
+.js .pindex.is-in > li {
+  animation: rise 550ms var(--ease-out) both;
+}
+
+.js .pindex.is-in > li:nth-child(2) { animation-delay: 70ms; }
+.js .pindex.is-in > li:nth-child(3) { animation-delay: 140ms; }
+.js .pindex.is-in > li:nth-child(4) { animation-delay: 210ms; }
+.js .pindex.is-in > li:nth-child(5) { animation-delay: 280ms; }
+.js .pindex.is-in > li:nth-child(6) { animation-delay: 350ms; }
+
+/* ==========================================================================
+   En-tête des pages intérieures + fil d'Ariane
+   ========================================================================== */
+.page-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: var(--space-7) var(--space-8);
+  background: var(--teal-900);
+  color: var(--color-on-dark);
+}
+
+/* Trame de points discrète, côté droit (motif de marque) */
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(rgb(153 194 194 / 0.18) 1.6px, transparent 2px);
+  background-size: 22px 22px;
+  -webkit-mask-image: linear-gradient(100deg, transparent 35%, #000 85%);
+  mask-image: linear-gradient(100deg, transparent 35%, #000 85%);
+}
+
+.page-hero .container {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.page-hero__title {
+  max-width: 18ch;
+  color: var(--color-on-dark);
+}
+
+.page-hero__lead {
+  font-size: var(--text-lg);
+  color: var(--color-on-dark-muted);
+  max-width: 52ch;
+}
+
+.page-hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+  margin-top: var(--space-3);
+  color: var(--color-on-dark-muted);
+}
+
+/* Mobile : les repères sur une grille régulière, chiffre au-dessus du libellé */
+@media (max-width: 47.99rem) {
+  .page-hero__facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+  }
+
+  .page-hero__facts li {
+    display: grid;
+    align-content: start;
+    gap: 2px;
+    padding-left: var(--space-3);
+    border-left: 2px solid rgb(255 255 255 / 0.18);
+  }
+}
+
+.page-hero__fact-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--olive-300);
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-on-dark-muted);
+}
+
+.breadcrumb li + li::before {
+  content: "/";
+  margin-right: var(--space-2);
+  color: var(--teal-300);
+}
+
+.breadcrumb a {
+  color: var(--color-on-dark);
+}
+
+.breadcrumb a[aria-current="page"] {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Filtres (boutons à bascule, ils passent à la ligne si besoin)
+   ========================================================================== */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  color: var(--teal-900);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  transition: background-color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+
+.filter:hover {
+  border-color: var(--teal-600);
+  background: var(--teal-50);
+}
+
+.filter[aria-pressed="true"] {
+  border-color: var(--teal-600);
+  background: var(--teal-600);
+  color: var(--paper);
+}
+
+/* Mobile : liste déroulante à la place des boutons (8 filtres = 6 lignes de boutons) */
+.filter-select {
+  display: none;
+}
+
+.filter-select__label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--teal-900);
+}
+
+.filter-select__control {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--space-2) 2.5rem var(--space-2) var(--space-4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23006666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 0.85rem center / 1.1rem;
+  appearance: none;
+  font-weight: 600;
+  color: var(--teal-900);
+}
+
+@media (max-width: 47.99rem) {
+  .js .filter-select {
+    display: block;
+  }
+
+  .js .filters {
+    display: none;
+  }
+}
+
+.filter__count {
+  min-width: 1.5em;
+  padding: 0 0.4em;
+  border-radius: var(--radius-pill);
+  background: var(--teal-50);
+  color: var(--teal-800);
+  font-size: 0.8125rem;
+  text-align: center;
+}
+
+.filter[aria-pressed="true"] .filter__count {
+  /* fond plein : 9:1, au lieu de 4,3:1 avec un fond translucide */
+  background: var(--paper);
+  color: var(--teal-800);
+}
+
+/* ==========================================================================
+   Formulaires (contact, adhésion…)
+   Bordures --line-strong (3,7:1), erreurs --error (6,5:1), zones ≥ 44 px.
+   ========================================================================== */
+.page-hero--compact {
+  padding-block: var(--space-7);
+}
+
+.form {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.form__row {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 40rem) {
+  .form__row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+}
+
+.field__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--teal-900);
+}
+
+.field__req {
+  color: var(--error);
+}
+
+.field__opt {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.field__input {
+  width: 100%;
+  min-height: 52px;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  background-color: var(--paper-warm);
+  font-size: var(--text-base);
+  color: var(--ink);
+  transition: border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out),
+              background-color var(--duration-base) var(--ease-out);
+}
+
+.field__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.field__input:hover {
+  border-color: var(--teal-700);
+  background-color: var(--paper);
+}
+
+.field__input:focus-visible {
+  outline: none;
+  border-color: var(--teal-600);
+  background-color: var(--paper);
+  box-shadow: 0 0 0 4px var(--teal-100);
+}
+
+.field__input--short {
+  max-width: 18rem;
+}
+
+.field__textarea {
+  min-height: 9rem;
+  resize: vertical;
+  line-height: var(--leading-body);
+}
+
+.field__input[aria-invalid] {
+  border-color: var(--error);
+  box-shadow: inset 3px 0 0 var(--error);
+}
+
+.field__help {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.field__count {
+  justify-self: end;
+}
+
+.field__error {
+  display: flex;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--error);
+}
+
+.field__error[hidden],
+.error-summary[hidden],
+.form__status[hidden] {
+  display: none;
+}
+
+.field__error::before {
+  content: "!";
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  background: var(--error);
+  color: var(--paper);
+  font-size: 0.8em;
+}
+
+/* Case à cocher : grande zone cliquable, case nette */
+.field--check {
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  column-gap: var(--space-3);
+}
+
+.field--check .field__error {
+  grid-column: 1 / -1;
+}
+
+.field__checkbox {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: 0.1rem;
+  accent-color: var(--teal-600);
+  cursor: pointer;
+}
+
+.field--check .field__label {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-base);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+/* Champ piège anti-robots : hors écran, jamais atteignable au clavier */
+.form__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Récapitulatif des erreurs */
+.error-summary {
+  padding: var(--space-5);
+  border: 2px solid var(--error);
+  border-radius: var(--radius-sm);
+  background: var(--error-bg);
+}
+
+.error-summary__title {
+  font-size: var(--text-lg);
+  color: var(--error);
+  margin-bottom: var(--space-3);
+}
+
+.error-summary__title:focus {
+  outline: none;
+}
+
+.error-summary ul {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.error-summary a {
+  color: var(--error);
+  font-weight: 600;
+}
+
+/* Bouton d'envoi : indicateur de chargement */
+.form__submit {
+  position: relative;
+}
+
+.form__spinner {
+  display: none;
+  width: 1.1em;
+  height: 1.1em;
+  border: 2px solid rgb(255 255 255 / 0.4);
+  border-top-color: var(--paper);
+  border-radius: 50%;
+  animation: spin 800ms linear infinite;
+}
+
+.form__submit[data-busy] .form__spinner {
+  display: inline-block;
+}
+
+.form__submit:disabled {
+  cursor: progress;
+  opacity: 0.85;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Messages après envoi */
+.form__status {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+  padding: var(--space-5);
+  border-left: 4px solid var(--teal-600);
+  border-radius: var(--radius-sm);
+  background: var(--teal-50);
+}
+
+.form__status:focus {
+  outline: none;
+}
+
+.form__status--info {
+  border-left-color: var(--olive-600);
+  background: var(--olive-50);
+}
+
+.form__status--error {
+  border-left-color: var(--error);
+  background: var(--error-bg);
+}
+
+.form__status-title {
+  font-size: var(--text-lg);
+  color: var(--teal-900);
+}
+
+.form__status-alt {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---- Choix rapides (« Votre message concerne… ») ---- */
+.topics {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.topics legend {
+  margin-bottom: var(--space-3);
+}
+
+.topics__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.topic {
+  position: relative;
+}
+
+.topic input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.topic span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--teal-900);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+
+/* Le point de la marque apparaît sur le choix sélectionné */
+.topic span::before {
+  content: "";
+  width: 0;
+  height: 0.5rem;
+  margin-right: calc(-1 * var(--space-2));
+  border-radius: 50%;
+  background: currentColor;
+  transition: width var(--duration-base) var(--ease-out), margin var(--duration-base) var(--ease-out);
+}
+
+.topic:hover span {
+  border-color: var(--teal-600);
+  background: var(--teal-50);
+}
+
+.topic input:checked + span {
+  border-color: var(--teal-600);
+  background: var(--teal-600);
+  color: var(--paper);
+}
+
+.topic input:checked + span::before {
+  width: 0.5rem;
+  margin-right: 0;
+}
+
+.topic input:focus-visible + span {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+/* ---- Progression : un point par élément obligatoire ---- */
+.form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-2);
+}
+
+.form__progress {
+  display: flex;
+  gap: 8px;
+}
+
+.form__progress span {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--teal-300);
+  border-radius: 50%;
+  transition: background-color var(--duration-base) var(--ease-out),
+              border-color var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out);
+}
+
+.form__progress span.is-done {
+  border-color: var(--teal-600);
+  background: var(--teal-600);
+  transform: scale(1.15);
+}
+
+.form__progress span:nth-child(2n).is-done {
+  border-color: var(--olive-600);
+  background: var(--olive-600);
+}
+
+/* ---- Téléphone : un seul champ, l'indicatif à gauche, le numéro à droite ----
+   La vraie liste <select> est posée, invisible, sur la zone de l'indicatif :
+   clavier, lecteur d'écran et liste native du téléphone fonctionnent normalement. */
+.phone-field {
+  display: flex;
+  align-items: stretch;
+  max-width: 24rem;
+  min-height: 44px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  background-color: var(--paper-warm);
+  transition: border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out),
+              background-color var(--duration-base) var(--ease-out);
+}
+
+.phone-field:hover {
+  border-color: var(--teal-700);
+  background-color: var(--paper);
+}
+
+.phone-field:focus-within {
+  border-color: var(--teal-600);
+  background-color: var(--paper);
+  box-shadow: 0 0 0 4px var(--teal-100);
+}
+
+.phone-field:has([aria-invalid]) {
+  border-color: var(--error);
+  box-shadow: inset 3px 0 0 var(--error);
+}
+
+.phone-field__country {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0 var(--space-3);
+  border-right: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--teal-900);
+}
+
+.phone-field__chevron {
+  width: 1rem;
+  height: 1rem;
+  color: var(--teal-600);
+}
+
+.phone-field__select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+  font-size: 16px; /* évite le zoom automatique sur iPhone */
+}
+
+/* Focus clavier sur la liste : on le montre sur la zone de l'indicatif */
+.phone-field__country:has(.phone-field__select:focus-visible) {
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  background: var(--teal-50);
+}
+
+.phone-field__number {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-2) var(--space-3);
+  border: 0;
+  background: transparent;
+  font-size: var(--text-sm);
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.phone-field__number:focus {
+  outline: none;
+}
+
+.phone-field__number::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Compteur : indique ce qui manque avant le minimum */
+.field__count.is-short {
+  color: var(--olive-700);
+  font-weight: 600;
+}

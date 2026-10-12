@@ -1,0 +1,517 @@
+/* ==========================================================================
+   Page « À propos »
+   Ordre « confiance » : identité → mission et vision → valeurs →
+   façons d'agir → domaines → partenaires → nous rencontrer → agir.
+   ========================================================================== */
+
+/* ---- En-tête : le slogan, en italique, comme une signature ---- */
+.about-hero__slogan {
+  max-width: 46ch;
+  margin-top: var(--space-2);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--teal-300);
+}
+
+/* ---- Mission et vision ---- */
+.purpose__inner {
+  display: grid;
+  gap: var(--space-7);
+  align-items: start;
+}
+
+.purpose__mission {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.purpose__mission p {
+  color: var(--color-text-muted);
+}
+
+.purpose__text {
+  max-width: 34ch;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-xl);
+  line-height: 1.35;
+  color: var(--teal-900) !important;
+}
+
+.purpose__vision {
+  display: grid;
+  gap: var(--space-3);
+  padding-left: var(--space-5);
+  border-left: 3px solid var(--olive-600);
+}
+
+.purpose__vision-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--olive-700);
+}
+
+.purpose__vision blockquote p {
+  max-width: 30ch;
+  font-style: italic;
+  font-size: clamp(1.4rem, 1.1rem + 1.3vw, 2rem);
+  line-height: 1.3;
+  color: var(--teal-900);
+  text-wrap: balance;
+}
+
+.purpose__body {
+  display: grid;
+  gap: var(--space-7);
+}
+
+/* Portrait du président : le motif de points du logo se dessine derrière lui */
+.purpose__portrait {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  gap: var(--space-3);
+  max-width: 26rem;
+}
+
+.purpose__portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.purpose__portrait::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: var(--space-6);
+  right: calc(-1 * var(--space-5));
+  width: 70%;
+  height: 70%;
+  background-image: radial-gradient(var(--olive-300) 1.8px, transparent 2.2px);
+  background-size: 14px 14px;
+  -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent);
+  mask-image: linear-gradient(180deg, #000 30%, transparent);
+}
+
+.js .purpose__portrait::before {
+  transition: clip-path 1200ms var(--ease-out);
+  clip-path: inset(0 0 0 0);
+}
+
+.js .purpose__portrait:not(.is-in)::before {
+  clip-path: inset(0 0 100% 100%);
+}
+
+.purpose__portrait figcaption {
+  display: grid;
+  gap: 2px;
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--teal-600);
+}
+
+.purpose__portrait figcaption strong {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--teal-900);
+}
+
+.purpose__portrait figcaption span {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 55.99rem) {
+  .purpose__portrait {
+    max-width: 20rem;
+  }
+}
+
+@media (min-width: 56rem) {
+  .purpose__inner {
+    grid-template-columns: 26rem 1fr;
+    gap: var(--space-9);
+  }
+}
+
+/* ---- Valeurs : bande sombre ---- */
+.about-values {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: var(--section-gap);
+  background: var(--teal-900);
+  color: var(--color-on-dark);
+}
+
+/* Trame de points discrète (motif de marque) */
+.about-values::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(rgb(153 194 194 / 0.16) 1.6px, transparent 2px);
+  background-size: 22px 22px;
+  -webkit-mask-image: linear-gradient(100deg, transparent 30%, #000 85%);
+  mask-image: linear-gradient(100deg, transparent 30%, #000 85%);
+}
+
+.about-values__title {
+  margin-bottom: var(--space-6);
+  color: var(--color-on-dark);
+}
+
+.about-values__list {
+  display: grid;
+  gap: 0 var(--space-6);
+}
+
+.value {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+  padding-block: var(--space-5);
+  border-top: 1px solid rgb(255 255 255 / 0.14);
+}
+
+.value__name {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  color: var(--color-on-dark);
+}
+
+.value__name::before {
+  content: "";
+  flex: none;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--olive-300);
+  transform: translateY(-0.1em);
+}
+
+.value__proof {
+  padding-left: calc(0.6rem + var(--space-3));
+  font-size: var(--text-sm);
+  color: var(--color-on-dark-muted);
+}
+
+.value__proof a {
+  color: var(--color-on-dark);
+  font-weight: 600;
+}
+
+@media (min-width: 48rem) {
+  .about-values__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .about-values__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+
+}
+
+/* ---- Comment nous agissons ---- */
+.ways__head {
+  display: grid;
+  gap: var(--space-6);
+  margin-bottom: var(--space-7);
+}
+
+.ways__head .section__head {
+  margin-bottom: 0;
+}
+
+.ways__photo {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 24rem;
+}
+
+.ways__photo img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.ways__photo figcaption {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.ways__list {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.way {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding-top: var(--space-5);
+  border-top: 2px solid var(--teal-900);
+}
+
+.way__icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--teal-50);
+  color: var(--teal-600);
+  transition: background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
+}
+
+.way__icon .icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.way:hover .way__icon {
+  background: var(--teal-600);
+  color: var(--paper);
+}
+
+.way__title {
+  font-size: var(--text-lg);
+  color: var(--teal-900);
+}
+
+.way__text {
+  color: var(--color-text-muted);
+}
+
+.way__examples {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.way__examples a {
+  font-weight: 600;
+}
+
+@media (min-width: 56rem) {
+  .ways__head {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: var(--space-8);
+  }
+
+  .ways__list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-7);
+  }
+}
+
+/* ---- Nous rencontrer ---- */
+.visit__inner {
+  display: grid;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.visit__inner > div {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+}
+
+.visit__map {
+  margin-top: var(--space-2);
+}
+
+.visit__card {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border-top: 2px solid var(--teal-900);
+  background: var(--paper);
+  font-style: normal;
+}
+
+.visit__card p {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.visit__card .icon {
+  margin-top: 0.2em;
+  color: var(--teal-600);
+}
+
+@media (min-width: 56rem) {
+  .visit__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-9);
+  }
+}
+
+/* ---- Vous souhaitez… ---- */
+.paths__list {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.path {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--space-3);
+  justify-items: start;
+  padding: var(--space-6);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--teal-600);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+}
+
+.path:nth-child(2) {
+  border-top-color: var(--olive-600);
+}
+
+.path:nth-child(3) {
+  border-top-color: var(--teal-900);
+}
+
+.path h3 {
+  font-size: var(--text-lg);
+  color: var(--teal-900);
+}
+
+.path p {
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 56rem) {
+  .paths__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .path .button {
+    justify-self: stretch;
+  }
+}
+
+/* ---- Où nous en sommes : frise datée ---- */
+ol.milestones__list {
+  display: grid;
+  margin-top: var(--space-6);
+  border-left: 2px solid var(--teal-100);
+  padding-left: var(--space-6);
+}
+
+.milestone {
+  position: relative;
+  display: grid;
+  gap: var(--space-1);
+  align-content: start;
+  padding-bottom: var(--space-6);
+}
+
+.milestone::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 7px);
+  top: 0.35em;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--teal-600);
+  box-shadow: 0 0 0 4px var(--paper);
+}
+
+.milestone__date {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--teal-900);
+}
+
+.milestone__text {
+  max-width: 56ch;
+  color: var(--color-text-muted);
+}
+
+.milestone--now::before {
+  background: var(--olive-600);
+  box-shadow: 0 0 0 4px var(--paper), 0 0 0 7px var(--olive-100);
+}
+
+.milestone--now .milestone__date {
+  color: var(--olive-700);
+}
+
+.milestone--future::before {
+  background: var(--paper);
+  border: 2px solid var(--line-strong);
+}
+
+.milestone--future .milestone__date {
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 64rem) {
+  ol.milestones__list {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: var(--space-5);
+    border-left: 0;
+    border-top: 2px solid var(--teal-100);
+    padding: var(--space-6) 0 0;
+  }
+
+  .milestone {
+    padding-bottom: 0;
+  }
+
+  .milestone::before {
+    left: 0;
+    top: calc(-1 * var(--space-6) - 7px);
+  }
+}
+
+.js .milestones__list:not(.is-in) > li {
+  opacity: 0;
+}
+
+.js .milestones__list.is-in > li {
+  animation: rise 550ms var(--ease-out) both;
+}
+
+.js .milestones__list.is-in > li:nth-child(2) { animation-delay: 90ms; }
+.js .milestones__list.is-in > li:nth-child(3) { animation-delay: 180ms; }
+.js .milestones__list.is-in > li:nth-child(4) { animation-delay: 270ms; }
+.js .milestones__list.is-in > li:nth-child(5) { animation-delay: 360ms; }
+
+/* ---- Domaines : une ligne et un lien ---- */
+.about-domains__inner {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+}
+
+.about-domains__list {
+  max-width: 60ch;
+}
+
+.about-domains__title {
+  font-size: var(--text-xl);
+}
+
+.about-domains__list {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
